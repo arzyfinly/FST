@@ -1,0 +1,93 @@
+
+<div class="modal fade" id="modalCreateAttendance" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Absensi Kelas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="createAttendance">
+            @csrf
+            <div class="form-group">
+              <label for="select2SinglePlaceholder">Kelas</label> <br>
+              <select style="width: 100%" name="class_id" id="select2SinglePlaceholder" class=" form-control form-control-sm select-student class_id">
+                  <option value="" selected>Pilih Kelas</option>
+                  @foreach ($classes as $class)
+                      <option value="{{ $class->id }}">{{ $class->name }}
+                      </option>
+                  @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+              <label>Point</label>
+              <table class="table table-bordered" id="dynamicAddRemove">  
+                <tr>
+                <th style="width: 75%">Siswa tidak hadir</th>
+                <th style="text-align: center;">Tambah Siswa</th>
+                </tr>
+                <tr>  
+                <td>
+                  <tr>
+                    <td>
+                      <select style="width: 100%" name="student[0][student_id]" id="select2Single" class=" form-control form-control-sm select-student ">
+                        <option value="" selected>Pilih Siswa</option>
+                        @foreach ($students as $student)
+                            <option value="{{ $student->id }}">{{ $student->name }}
+                            </option>
+                        @endforeach
+                      </select>
+                    </td>
+                    <td>
+                      <label>Status Kehadiran</label>
+                      <select class="select2-single-placeholder form-control form-control-sm" name="status[0][status]" id="status">
+                        <option value="A">Alpa</option>
+                        <option value="I">Izin</option>
+                      </select>
+                    </td>
+                  </tr>
+                </td>
+                <td style="text-align: center;">
+                  <button type="button" name="add" id="add-btn" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button></td>  
+                </tr>  
+                </table>
+              {{-- <input type="text" class="form-control form-control-sm"name="point" id="point"> --}}
+            </div>
+            <div class="form-group" id="date">
+              <label for="simpleDataInput">Tanggal</label>
+                <div class="input-group date">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                  </div>
+                  <input type="text" name="date" class="form-control form-control-sm" value="" id="simpleDataInput">
+                </div>
+            </div>
+            <div class="form-group">
+              <label>Status Kehadiran</label>
+              <select class="select2-single-placeholder form-control form-control-sm" name="status" id="status">
+                <option value="A">Alpa</option>
+                <option value="I">Izin</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Foto Surat Izin</label>
+                <label class="form-label" for="customFile">Upload Surat Izin</label>
+                <input type="file" class="form-control" id="customFile" />
+            </div>
+            <div class="form-group">
+              <label>Deskripsi</label>
+                <textarea type="text" name="description" class="form-control" placeholder="Masukkan Deskripsi"></textarea>
+            </div>
+            {{-- <input type="text" hidden name="" value="{{$id}}" id=""> --}}
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="submit" id="submit" class="btn btn-primary">Buat</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+@include('admin.attendances.scriptcreatedata')
