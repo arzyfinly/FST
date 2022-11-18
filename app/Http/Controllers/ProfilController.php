@@ -7,79 +7,11 @@ use Illuminate\Http\Request;
 
 class ProfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function sejarah()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Profil $profil)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Profil $profil)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Profil $profil)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Profil  $profil
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Profil $profil)
-    {
-        //
+        $sejarah = Profil::where('category_profile_id', '1')
+                         ->where('publish', '1')
+                         ->first();
+        return view('guest.profil.sejarah.index', compact('sejarah'));
     }
 }

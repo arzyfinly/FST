@@ -21,7 +21,7 @@
         <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             {{-- <h6 class="collapse-header">Data</h6> --}}
-            <a class="collapse-item @yield('sejarah-fst-active')" href="profil/sejarah-fst"> Sejarah Fakultas</a>
+            <a class="collapse-item @yield('sejarah-fst-active')" href="{{ route('sejarah-fst.index') }}"> Sejarah Fakultas</a>
             <a class="collapse-item @yield('visi-misi-tujuan-fst-active')" href="profil/visi-misi-tujuan-fst"> Visi, Misi dan Tujuan Fakultas</a>
             <a class="collapse-item @yield('profil-pimpinan-fakultas-active')" href="profil/pimpinan-fakultas">Profil Pimpinan Fakultas</a>
             <a class="collapse-item @yield('profil-staff-dosen-active')" href="profil/staff-dosen">Profil Staff Dosen</a>

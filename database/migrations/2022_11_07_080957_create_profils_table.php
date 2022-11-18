@@ -21,7 +21,7 @@ class CreateProfilsTable extends Migration
             $table->longText('content');
             $table->string('image_content');
             $table->string('image_header');
-            $table->string('date');
+            $table->date('date');
             $table->string('publish')->default('0');
             $table->foreignId('category_profile_id')->constrained('category_profiles');
             $table->timestamps();

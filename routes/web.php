@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\{
+    SejarahController, DashboardController
+};
 use App\Http\Controllers\{
-    SejarahController, VisiMisiController, ProfilStaffDosenController, ProfilTendikController, ProfilPimpinanFakultasController, IdentitasFstController,
-    StrukturOrganisasiController, HomeController,
+    ProfilController, HomeController
 };
 
 /*
@@ -16,25 +18,14 @@ use App\Http\Controllers\{
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/profil/sejarah-fst',                   [SejarahController::class, 'index'])->name('sejarah-home');                              //index
-Route::get('/home',                                 [HomeController::class, 'index'])->name('home');
+Route::get('/home',                                                [HomeController::class, 'index'])->name('home');
+Route::get('/profil/sejarah-fst/',                                 [ProfilController::class, 'sejarah'])->name('guest.sejarah');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('/admin/profil/sejarah-fst/',                      SejarahController::class, 
-    [
-        // 'as' => 'sejarah-fst'
-    'names' => [
-        'index' => 'sejarah-fst.index',
-        'create' => 'sejarah-fst.create',
-        'update' => 'sejarah-fst.update',
-        'edit' => 'sejarah-fst.edit',
-        'store' => 'sejarah-fst.store',
-        'destroy' => 'sejarah-fst.destroy',
-    ]
-    ]
-);                          //index
-    Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);                          //index
+    Route::resource('admin/profil/sejarah-fst',                           SejarahController::class);                          //index
+    // Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);                          //index
 });
 // profil
 // Route::get('profil/visi-misi-tujuan-fst',           [ProfilController::class, 'visiMisiIndex']);            //index

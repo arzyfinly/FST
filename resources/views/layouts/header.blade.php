@@ -94,7 +94,7 @@
                                             <li id="menu-item-2099"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                 <a title="College Overview"
-                                                    href="{{ route('sejarah-fst.index') }}"
+                                                    href="{{ route('guest.sejarah') }}"
                                                     onClick="return true">Sejarah Fakultas</a>
                                             </li>
                                             <li id="menu-item-4124"

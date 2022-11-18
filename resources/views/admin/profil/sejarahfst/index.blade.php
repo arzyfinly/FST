@@ -66,7 +66,7 @@
                 // processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "/profil/sejarah-fst",
+                    url: "{{ route('sejarah-fst.index') }}",
                     type: 'GET',
                 },
                 "responsive": true,
