@@ -91,7 +91,7 @@ class SejarahController extends Controller
         $validated = $request->validate([
             'title'                 => 'required',
             'keyword'               => 'required',
-            'description'           => 'required',
+            'description'           => 'required|max:150',
             'content'               => 'required',
             'image_content'         => 'required',
             'image_header'          => 'required',
@@ -103,6 +103,17 @@ class SejarahController extends Controller
         $data = $request->all();
         $path = 'images/sejarah-fakultas';
         $file = $request->hasfile('image_header');
+
+
+        if ($data['publish'] == 1 && $data['category_profile_id'] == 1 && Profil::where('category_profile_id', '1')->count() > 0) {
+            $sejarah = Profil::where('category_profile_id', '1')
+                ->where('publish', '1')
+                ->first();
+            $sejarah->publish = 0;
+            $sejarah->save();
+        }
+        // dd($data);
+
         if ($request->hasfile('image_header') && $request->hasfile('image_content')) {
             $file = $request->file('image_header');
             $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
@@ -115,21 +126,15 @@ class SejarahController extends Controller
             $data['image_content'] = $nama_file;
         }
 
-        if ($data['publish'] == 1 && $data['category_profile_id'] == 1) {
-            $sejarah = Profil::where('category_profile_id', '1')
-                ->where('publish', '1')
-                ->first();
-            $sejarah->publish = 0;
-            $sejarah->save();
-        }
-        // dd($data);
         Profil::create($data);
+
 
         return redirect()->route('sejarah-fst.index');
     }
 
     public function show()
     {
+        return redirect('/profil/sejarah-fst');
     }
 
     public function edit($sejarah_fst)
@@ -144,7 +149,7 @@ class SejarahController extends Controller
         $request->validate([
             'title'                 => 'required',
             'keyword'               => 'required',
-            'description'           => 'required',
+            'description'           => 'required|max:150',
             'content'               => 'required',
             'image_content'         => 'nullable',
             'image_header'          => 'nullable',
@@ -218,6 +223,17 @@ class SejarahController extends Controller
 
     public function destroy($sejarah_fst)
     {
-        //
+        $fst_sejarah = Profil::Find($sejarah_fst);
+        $path = '/images/sejarah-fakultas';
+
+        if ("/images/sejarah-fakultas".$fst_sejarah->file) {
+            File::delete("/images/sejarah-fakultas".$fst_sejarah->file);
+        }
+        $fst_sejarah->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Sejarah berhasil dihapus!'
+        ],200);
     }
 }

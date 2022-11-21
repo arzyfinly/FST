@@ -18,13 +18,16 @@ use App\Http\Controllers\{
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::redirect('/', '/home');
 Route::get('/home',                                                [HomeController::class, 'index'])->name('home');
 Route::get('/profil/sejarah-fst/',                                 [ProfilController::class, 'sejarah'])->name('guest.sejarah');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('admin/profil/sejarah-fst',                           SejarahController::class);                          //index
+    Route::resource('admin/profil/sejarah-fst',                           SejarahController::class)->except(['show']);
+    Route::get(     '',                                                      [SejarahController::class, 'show'])->name('sejarah-fst.show');
     // Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);                          //index
 });
 // profil

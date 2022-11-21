@@ -26,7 +26,7 @@
             <li class="breadcrumb-item"><a href="./">{{ __('Home') }}</a></li>
             <li class="breadcrumb-item">{{ __('Profil') }}</li>
             <li class="breadcrumb-item">{{ __('Sejarah FST') }}</li>
-            <li class="breadcrumb-item active" aria-current="page">{{ __('Edit') }}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ __('Create') }}</li>
         </ol>
     </div>
     <div class="row">
@@ -34,13 +34,12 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Edit Sejarah FST') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Create Sejarah FST') }}</h6>
                     {{-- <a href="{{ route('sejarah-fst.create') }}" data-toggle="tooltip" data-original-title="Create" class="btn btn-success  py-0"><b style="font-size: 27px">+</b></a> --}}
                 </div>
                 <div class="table-responsive p-3">
-                    <form action="{{ route('sejarah-fst.update', $sejarah->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('sejarah-fst.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3 border-right">
@@ -52,7 +51,7 @@
                                         <div class="col-sm">
                                             <div id="msg"></div>
                                             <div class="input-group my-3 text-center">
-                                                <img id="output1" src="/images/sejarah-fakultas/{{ $sejarah->image_header }}" class="img-thumbnail" />
+                                                <img id="output1" class="img-thumbnail" />
                                             </div>
                                         </div>
                                         @error('image_header')
@@ -67,7 +66,7 @@
                                         <div class="col-sm">
                                             <div id="msg"></div>
                                             <div class="input-group my-3 text-center">
-                                                <img id="output2" src="/images/sejarah-fakultas/{{ $sejarah->image_content }}" class="img-thumbnail" />
+                                                <img id="output2" class="img-thumbnail" />
                                             </div>
                                         </div>
                                         @error('image_content')
@@ -87,14 +86,14 @@
                                             <div class="col-md-6">
                                                 <label class="labels">Judul</label>
                                                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="judul"
-                                                    value="{{ $sejarah->title }}">
+                                                    value="">
                                                 @error('title')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="labels">Keyword</label>
-                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" value="{{ $sejarah->keyword }}"
+                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" value=""
                                                     placeholder="keyword">
                                                     @error('keyword')
                                             <small class="text-danger">{{ $message }}</small>
@@ -105,14 +104,14 @@
                                             <div class="col-md-12">
                                                 <label class="labels">Diskripsi</label>
                                                 <input type="text" name="description" class="form-control @error('description') is-invalid @enderror"
-                                                    placeholder="diskripsi singkat konten" value="{{ $sejarah->description }}">
+                                                    placeholder="diskripsi singkat konten" value="">
                                                     @error('description')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                             </div>
                                             <div class="col-md-12 mt-2">
                                                 <label class="labels">Konten</label>
-                                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="exampleFormControlTextarea1" rows="4" style="font-size: 10pt">{{ $sejarah->content }}</textarea>
+                                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="exampleFormControlTextarea1" rows="4" style="font-size: 10pt"></textarea>
                                                 <small class="text-danger"> *Isi konten minimal 1 paragraf dan tidak lebih dari 2 paragraf  </small> <br>
                                                 @error('content')
                                             <small class="text-danger">{{ $message }}</small>
@@ -120,7 +119,7 @@
                                             </div>
                                             <div class="col-md-12 mt-2">
                                                 <label class="labels">Tanggal Post</label>
-                                                <input type="date" name="date" class="form-control date @error('date') is-invalid @enderror" placeholder="" value="{{ $sejarah->date }}">
+                                                <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder="" value="">
                                                 @error('date')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -132,11 +131,7 @@
                                                 <label class="labels">Publish</label>
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="publish" type="checkbox"
-                                                        value="1" id="checkbox-1"
-                                                        @if ($sejarah->publish == 1)
-                                                            checked
-                                                        @endif
-                                                        />
+                                                        value="1" id="checkbox-1" />
                                                     <input hidden name="category_profile_id" type="text"
                                                         value="1" />
                                                     <label class="form-check-label" for="checkbox-1">Checklist kotak
@@ -146,7 +141,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button"type="submit">Update</button>
+                                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button"type="submit">Simpan</button>
                                         </div>
                                     </div>
                                 </div>
