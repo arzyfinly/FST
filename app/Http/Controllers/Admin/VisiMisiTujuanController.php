@@ -13,11 +13,12 @@ use File;
 class VisiMisiTujuanController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+
         $visi_misi_tujuan = Profil::where('category_profile_id', '2')->get();
         if ($request->ajax()) {
-            return DataTables::of($sejarahAll)
+            return DataTables::of($visi_misi_tujuan)
                 ->addColumn('title', function ($row) {
                     return $row->title;
                 })
@@ -71,7 +72,7 @@ class VisiMisiTujuanController extends Controller
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.profil.sejarahfst.index');
+        return view('admin.profil.visimisitujuanfst.index');
     }
 
 
@@ -86,9 +87,9 @@ class VisiMisiTujuanController extends Controller
     }
 
 
-    public function show($id)
+    public function show()
     {
-        //
+        return redirect()->route('guest.visi-misi');
     }
 
     public function edit($id)

@@ -15,14 +15,8 @@ class CreateProfilsTable extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('keyword');
-            $table->string('description');
-            $table->longText('content');
-            $table->string('image_content');
             $table->string('image_header');
-            $table->date('date');
-            $table->string('publish')->default('0');
             $table->foreignId('category_profile_id')->constrained('category_profiles');
             $table->timestamps();
         });

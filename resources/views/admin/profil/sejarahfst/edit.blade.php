@@ -52,7 +52,7 @@
                                         <div class="col-sm">
                                             <div id="msg"></div>
                                             <div class="input-group my-3 text-center">
-                                                <img id="output1" src="/images/sejarah-fakultas/{{ $sejarah->image_header }}" class="img-thumbnail" />
+                                                <img id="output1" src="/images/sejarah-fakultas/{{ $sejarah->profil->image_header }}" class="img-thumbnail" />
                                             </div>
                                         </div>
                                         @error('image_header')
@@ -94,7 +94,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="labels">Keyword</label>
-                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" value="{{ $sejarah->keyword }}"
+                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" value="{{ $sejarah->profil->keyword }}"
                                                     placeholder="keyword">
                                                     @error('keyword')
                                             <small class="text-danger">{{ $message }}</small>

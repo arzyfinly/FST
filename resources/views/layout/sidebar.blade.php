@@ -13,7 +13,7 @@
       </li>
       <hr class="sidebar-divider">
       <li class="nav-item @yield('profile-active')">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
+        <a class="nav-link @yield('profile-collapsed')" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
           aria-expanded="true" aria-controls="collapseBootstrap">
           <i class="fas fa-database"></i>
           <span>Profil</span>
@@ -22,11 +22,11 @@
           <div class="bg-white py-2 collapse-inner rounded">
             {{-- <h6 class="collapse-header">Data</h6> --}}
             <a class="collapse-item @yield('sejarah-fst-active')" href="{{ route('sejarah-fst.index') }}"> Sejarah Fakultas</a>
-            <a class="collapse-item @yield('visi-misi-tujuan-fst-active')" href="profil/visi-misi-tujuan-fst"> Visi, Misi dan Tujuan Fakultas</a>
+            <a class="collapse-item @yield('visi-misi-tujuan-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}"> Visi, Misi dan Tujuan Fakultas</a>
             <a class="collapse-item @yield('profil-pimpinan-fakultas-active')" href="profil/pimpinan-fakultas">Profil Pimpinan Fakultas</a>
             <a class="collapse-item @yield('profil-staff-dosen-active')" href="profil/staff-dosen">Profil Staff Dosen</a>
             <a class="collapse-item @yield('profil-tenaga-kependidikan-active')" href="profil/tenaga-kependidikan">Profil Tenaga Kependidikan</a>
-            <a class="collapse-item @yield('identitas-fst-active')" href="profil/identitas-fst">Identitas FST</a>
+            <a class="collapse-item @yield('identitas-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}">Identitas FST</a>
             <a class="collapse-item @yield('struktur-organisasi-active')" href="profil/struktur-organisasi">Struktur Organisasi</a>
             {{-- <a class="collapse-item" href="popovers.html">Popovers</a>
             <a class="collapse-item" href="progress-bar.html">Progress Bars</a> --}}

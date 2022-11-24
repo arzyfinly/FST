@@ -1,15 +1,15 @@
 @extends('layout.app')
-@section('title', 'Sejarah')
-@section('sejarah-fst-active', 'active')
+@section('title', 'Visi Misi & Tujuan FST')
+@section('visi-misi-tujuan-fst-active', 'active')
 @section('profile-active', 'active')
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('Sejarah') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ __('Visi Misi & Tujuan FST') }}</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./">{{ __('Home') }}</a></li>
             <li class="breadcrumb-item">{{ __('Profil') }}</li>
-            <li class="breadcrumb-item active" aria-current="page">{{ __('Sejarah FST') }}</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ __('Visi Misi & Tujuan FST') }}</li>
         </ol>
     </div>
     <div class="row">
@@ -18,14 +18,14 @@
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center">
                     <div class="mr-auto p-2">
-                        <h6 class="m-0 font-weight-bold text-primary">Sejarah FST</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Visi Misi & Tujuan FST</h6>
                     </div>
                     <div class="p-1">
-                        <a href="{{ route('sejarah-fst.show') }}" data-toggle="tooltip" data-original-title="Show"
+                        <a href="{{ route('visi-misi-tujuan-fst.show') }}" data-toggle="tooltip" data-original-title="Show"
                             class="btn btn-info"><span><i style="font-size: 15px" class="fas fa-eye"></i></span></a>
                     </div>
                     <div class="p-1">
-                        <a href="{{ route('sejarah-fst.create') }}" data-toggle="tooltip" data-original-title="Create"
+                        <a href="{{ route('visi-misi-tujuan-fst.create') }}" data-toggle="tooltip" data-original-title="Create"
                             class="btn btn-success"><span><i class="fas fa-plus"></i></span></a>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 // processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('sejarah-fst.index') }}",
+                    url: "{{ route('visi-misi-tujuan-fst.index') }}",
                     type: 'GET',
                 },
                 "responsive": true,
@@ -116,5 +116,5 @@
             });
         });
     </script>
-    @include('admin.profil.sejarahfst.scriptdelete')
+    @include('admin.profil.visimisitujuanfst.scriptdelete')
 @endsection

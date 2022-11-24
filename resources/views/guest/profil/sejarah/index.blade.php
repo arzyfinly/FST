@@ -4,7 +4,7 @@
     <div data-elementor-type="wp-page" data-elementor-id="439" class="elementor elementor-439">
         <section class="breadcrumb-style9-area">
             <div class="breadcrumb-style9-area-bg"
-                style="background-image: url('{{ asset('images/sejarah-fakultas/'.$sejarah->image_header) }}');">
+                style="background-image: url('{{ asset('images/sejarah-fakultas/'.$sejarah->profil->image_header) }}');">
             </div>
             <div class="container">
                 <div class="row">
@@ -58,7 +58,7 @@
                                                                     <div class="top">
                                                                         <div class="big-text">{{ substr($sejarah->content, 0, 1) }}</div>
                                                                         <div class="text">
-                                                                            <p align="justify">  
+                                                                            <p align="justify">
                                                                                                     {{ substr($sejarah->content, 1, $pos = strpos(substr($sejarah->content, 1, 250),".")+1) }} </p>
                                                                         </div>
                                                                     </div>
@@ -127,22 +127,22 @@
                                                                         <div class="statements-tab__content">
                                                                             <div class="theme_carousel statements-tab-carousel owl-theme owl-carousel owl-nav-style-one"
                                                                                 data-options='{
-                                                    "loop": true, 
-                                                    "margin": 0, 
-                                                    "autoheight":true, 
-                                                    "lazyload":true, 
-                                                    "nav": true, 
-                                                    "dots": false, 
-                                                    "autoplay": true, 
-                                                    "autoplayTimeout": 5000, 
-                                                    "smartSpeed": 500, 
+                                                    "loop": true,
+                                                    "margin": 0,
+                                                    "autoheight":true,
+                                                    "lazyload":true,
+                                                    "nav": true,
+                                                    "dots": false,
+                                                    "autoplay": true,
+                                                    "autoplayTimeout": 5000,
+                                                    "smartSpeed": 500,
                                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                    "responsive":{ 
-                                                    "0" :{ "items": "1" }, 
-                                                    "600" :{ "items" : "1" }, 
-                                                    "768" :{ "items" : "1" }, 
-                                                    "992":{ "items" : "1" }, 
+                                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                    "responsive":{
+                                                    "0" :{ "items": "1" },
+                                                    "600" :{ "items" : "1" },
+                                                    "768" :{ "items" : "1" },
+                                                    "992":{ "items" : "1" },
                                                     "1200":{ "items" : "1" }
                                                 }
                                                 }'>
@@ -188,22 +188,22 @@
                                                                         <div class="statements-tab__content">
                                                                             <div class="theme_carousel statements-tab-carousel owl-theme owl-carousel owl-nav-style-one"
                                                                                 data-options='{
-                                                    "loop": true, 
-                                                    "margin": 0, 
-                                                    "autoheight":true, 
-                                                    "lazyload":true, 
-                                                    "nav": true, 
-                                                    "dots": false, 
-                                                    "autoplay": true, 
-                                                    "autoplayTimeout": 5000, 
-                                                    "smartSpeed": 500, 
+                                                    "loop": true,
+                                                    "margin": 0,
+                                                    "autoheight":true,
+                                                    "lazyload":true,
+                                                    "nav": true,
+                                                    "dots": false,
+                                                    "autoplay": true,
+                                                    "autoplayTimeout": 5000,
+                                                    "smartSpeed": 500,
                                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                    "responsive":{ 
-                                                    "0" :{ "items": "1" }, 
-                                                    "600" :{ "items" : "1" }, 
-                                                    "768" :{ "items" : "1" }, 
-                                                    "992":{ "items" : "1" }, 
+                                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                    "responsive":{
+                                                    "0" :{ "items": "1" },
+                                                    "600" :{ "items" : "1" },
+                                                    "768" :{ "items" : "1" },
+                                                    "992":{ "items" : "1" },
                                                     "1200":{ "items" : "1" }
                                                 }
                                                 }'>
@@ -249,22 +249,22 @@
                                                                         <div class="statements-tab__content">
                                                                             <div class="theme_carousel statements-tab-carousel owl-theme owl-carousel owl-nav-style-one"
                                                                                 data-options='{
-                                                    "loop": true, 
-                                                    "margin": 0, 
-                                                    "autoheight":true, 
-                                                    "lazyload":true, 
-                                                    "nav": true, 
-                                                    "dots": false, 
-                                                    "autoplay": true, 
-                                                    "autoplayTimeout": 5000, 
-                                                    "smartSpeed": 500, 
+                                                    "loop": true,
+                                                    "margin": 0,
+                                                    "autoheight":true,
+                                                    "lazyload":true,
+                                                    "nav": true,
+                                                    "dots": false,
+                                                    "autoplay": true,
+                                                    "autoplayTimeout": 5000,
+                                                    "smartSpeed": 500,
                                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                    "responsive":{ 
-                                                    "0" :{ "items": "1" }, 
-                                                    "600" :{ "items" : "1" }, 
-                                                    "768" :{ "items" : "1" }, 
-                                                    "992":{ "items" : "1" }, 
+                                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                    "responsive":{
+                                                    "0" :{ "items": "1" },
+                                                    "600" :{ "items" : "1" },
+                                                    "768" :{ "items" : "1" },
+                                                    "992":{ "items" : "1" },
                                                     "1200":{ "items" : "1" }
                                                 }
                                                 }'>
@@ -312,22 +312,22 @@
                                                                         <div class="statements-tab__content">
                                                                             <div class="theme_carousel statements-tab-carousel owl-theme owl-carousel owl-nav-style-one"
                                                                                 data-options='{
-                                                    "loop": true, 
-                                                    "margin": 0, 
-                                                    "autoheight":true, 
-                                                    "lazyload":true, 
-                                                    "nav": true, 
-                                                    "dots": false, 
-                                                    "autoplay": true, 
-                                                    "autoplayTimeout": 5000, 
-                                                    "smartSpeed": 500, 
+                                                    "loop": true,
+                                                    "margin": 0,
+                                                    "autoheight":true,
+                                                    "lazyload":true,
+                                                    "nav": true,
+                                                    "dots": false,
+                                                    "autoplay": true,
+                                                    "autoplayTimeout": 5000,
+                                                    "smartSpeed": 500,
                                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                    "responsive":{ 
-                                                    "0" :{ "items": "1" }, 
-                                                    "600" :{ "items" : "1" }, 
-                                                    "768" :{ "items" : "1" }, 
-                                                    "992":{ "items" : "1" }, 
+                                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                    "responsive":{
+                                                    "0" :{ "items": "1" },
+                                                    "600" :{ "items" : "1" },
+                                                    "768" :{ "items" : "1" },
+                                                    "992":{ "items" : "1" },
                                                     "1200":{ "items" : "1" }
                                                 }
                                                 }'>
@@ -658,22 +658,22 @@
                                                     <div class="choose-style1-content">
                                                         <div class="theme_carousel choose-style1-carousel owl-theme owl-carousel owl-nav-style-one"
                                                             data-options='{
-                                "loop": true, 
-                                "margin": 30, 
-                                "autoheight":true, 
-                                "lazyload":true, 
-                                "nav": true, 
-                                "dots": false, 
-                                "autoplay": true, 
-                                "autoplayTimeout": 5000, 
-                                "smartSpeed": 500, 
+                                "loop": true,
+                                "margin": 30,
+                                "autoheight":true,
+                                "lazyload":true,
+                                "nav": true,
+                                "dots": false,
+                                "autoplay": true,
+                                "autoplayTimeout": 5000,
+                                "smartSpeed": 500,
                                 "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                "responsive":{ 
-                                "0" :{ "items": "1" }, 
-                                "600" :{ "items" : "1" }, 
-                                "768" :{ "items" : "2" }, 
-                                "992":{ "items" : "3" }, 
+                                "<span class=\"right icon-right-arrow-1\"></span>"],
+                                "responsive":{
+                                "0" :{ "items": "1" },
+                                "600" :{ "items" : "1" },
+                                "768" :{ "items" : "2" },
+                                "992":{ "items" : "3" },
                                 "1200":{ "items" : "4" }
                             }
                             }'>
@@ -1578,22 +1578,22 @@
                                                 <div class="col-xl-12">
                                                     <div class="theme_carousel video-gallery-carousel owl-theme owl-carousel owl-dot-style1"
                                                         data-options='{
-                                "loop": true, 
-                                "margin": 30, 
-                                "autoheight":true, 
-                                "lazyload":true, 
-                                "nav": false, 
-                                "dots": true, 
-                                "autoplay": true, 
-                                "autoplayTimeout": 5000, 
-                                "smartSpeed": 500, 
+                                "loop": true,
+                                "margin": 30,
+                                "autoheight":true,
+                                "lazyload":true,
+                                "nav": false,
+                                "dots": true,
+                                "autoplay": true,
+                                "autoplayTimeout": 5000,
+                                "smartSpeed": 500,
                                 "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                "responsive":{ 
-                                "0" :{ "items": "1" }, 
-                                "600" :{ "items" : "1" }, 
-                                "768" :{ "items" : "1" }, 
-                                "992":{ "items" : "2" }, 
+                                "<span class=\"right icon-right-arrow-1\"></span>"],
+                                "responsive":{
+                                "0" :{ "items": "1" },
+                                "600" :{ "items" : "1" },
+                                "768" :{ "items" : "1" },
+                                "992":{ "items" : "2" },
                                 "1200":{ "items" : "2" }
                             }
                         }'>
@@ -1832,7 +1832,7 @@
                                 <div class="slider-box">
                                     <!-- Banner Carousel -->
                                     <div class="banner-carousel owl-theme owl-carousel">
-                            
+
                                         <!-- Slide -->
                                         <div class="slide">
                                             <div class="image-layer" style="background-image:url(../wp-content/uploads/2022/06/slide-v9-1.jpg)">
@@ -1914,7 +1914,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                            
+
                                     </div>
                                 </div>
                             </section>
@@ -2216,22 +2216,22 @@
                                             <div class="choose-style1-content">
                                                 <div class="theme_carousel choose-style1-carousel owl-theme owl-carousel owl-nav-style-one"
                                                     data-options=' {
-                                                                        "loop": true, 
-                                                                        "margin": 30, 
-                                                                        "autoheight":true, 
-                                                                        "lazyload":true, 
-                                                                        "nav": true, 
-                                                                        "dots": false, 
-                                                                        "autoplay": true, 
-                                                                        "autoplayTimeout": 5000, 
-                                                                        "smartSpeed": 500, 
+                                                                        "loop": true,
+                                                                        "margin": 30,
+                                                                        "autoheight":true,
+                                                                        "lazyload":true,
+                                                                        "nav": true,
+                                                                        "dots": false,
+                                                                        "autoplay": true,
+                                                                        "autoplayTimeout": 5000,
+                                                                        "smartSpeed": 500,
                                                                         "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                                        "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                                        "responsive":{ 
-                                                                        "0" :{ "items": "1" }, 
-                                                                        "600" :{ "items" : "1" }, 
-                                                                        "768" :{ "items" : "2" }, 
-                                                                        "992":{ "items" : "3" }, 
+                                                                        "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                                        "responsive":{
+                                                                        "0" :{ "items": "1" },
+                                                                        "600" :{ "items" : "1" },
+                                                                        "768" :{ "items" : "2" },
+                                                                        "992":{ "items" : "3" },
                                                                         "1200":{ "items" : "4" }
                                                                         }
                                                                     }'>
@@ -2386,22 +2386,22 @@
 
                                                 <div class="theme_carousel explore-direction-carousel owl-theme owl-carousel owl-dot-style1"
                                                     data-options='{
-                                                                    "loop": true, 
-                                                                    "margin": 30, 
-                                                                    "autoheight":true, 
-                                                                    "lazyload":true, 
-                                                                    "nav": false, 
-                                                                    "dots": true, 
-                                                                    "autoplay": true, 
-                                                                    "autoplayTimeout": 5000, 
-                                                                    "smartSpeed": 500, 
+                                                                    "loop": true,
+                                                                    "margin": 30,
+                                                                    "autoheight":true,
+                                                                    "lazyload":true,
+                                                                    "nav": false,
+                                                                    "dots": true,
+                                                                    "autoplay": true,
+                                                                    "autoplayTimeout": 5000,
+                                                                    "smartSpeed": 500,
                                                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                                                    "responsive":{ 
-                                                                    "0" :{ "items": "1" }, 
-                                                                    "600" :{ "items" : "1" }, 
-                                                                    "768" :{ "items" : "1" }, 
-                                                                    "1200":{ "items" : "1" }, 
+                                                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                                                    "responsive":{
+                                                                    "0" :{ "items": "1" },
+                                                                    "600" :{ "items" : "1" },
+                                                                    "768" :{ "items" : "1" },
+                                                                    "1200":{ "items" : "1" },
                                                                     "1800":{ "items" : "1" }
                                                                     }
                                                                 }'>
@@ -3076,22 +3076,22 @@
                                                 <div class="working-process-content clearfix">
                                                     <div class="theme_carousel working-process-carousel owl-theme owl-carousel owl-nav-style-one owl-dot-style1"
                                                         data-options='{
-                                    "loop": false, 
-                                    "margin": 0, 
-                                    "autoheight":true, 
-                                    "lazyload":true, 
-                                    "nav": true, 
-                                    "dots": true, 
-                                    "autoplay": true, 
-                                    "autoplayTimeout": 5000, 
-                                    "smartSpeed": 500, 
+                                    "loop": false,
+                                    "margin": 0,
+                                    "autoheight":true,
+                                    "lazyload":true,
+                                    "nav": true,
+                                    "dots": true,
+                                    "autoplay": true,
+                                    "autoplayTimeout": 5000,
+                                    "smartSpeed": 500,
                                     "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                                    "<span class=\"right icon-right-arrow-1\"></span>"], 
-                                    "responsive":{ 
-                                    "0" :{ "items": "1" }, 
-                                    "600" :{ "items" : "1" }, 
-                                    "768" :{ "items" : "1" }, 
-                                    "992":{ "items" : "2" }, 
+                                    "<span class=\"right icon-right-arrow-1\"></span>"],
+                                    "responsive":{
+                                    "0" :{ "items": "1" },
+                                    "600" :{ "items" : "1" },
+                                    "768" :{ "items" : "1" },
+                                    "992":{ "items" : "2" },
                                     "1200":{ "items" : "2" }
                                 }
                                 }'>
@@ -3231,22 +3231,22 @@
                                         <div class="col-xl-12">
                                             <div class="theme_carousel research-carousel owl-theme owl-carousel owl-dot-style1"
                                                 data-options='{
-                        "loop": true, 
-                        "margin": 30, 
-                        "autoheight":true, 
-                        "lazyload":true, 
-                        "nav": false, 
-                        "dots": true, 
-                        "autoplay": true, 
-                        "autoplayTimeout": 5000, 
-                        "smartSpeed": 500, 
+                        "loop": true,
+                        "margin": 30,
+                        "autoheight":true,
+                        "lazyload":true,
+                        "nav": false,
+                        "dots": true,
+                        "autoplay": true,
+                        "autoplayTimeout": 5000,
+                        "smartSpeed": 500,
                         "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                        "<span class=\"right icon-right-arrow-1\"></span>"], 
-                        "responsive":{ 
-                        "0" :{ "items": "1" }, 
-                        "600" :{ "items" : "1" }, 
-                        "768" :{ "items" : "1" }, 
-                        "1200":{ "items" : "2" }, 
+                        "<span class=\"right icon-right-arrow-1\"></span>"],
+                        "responsive":{
+                        "0" :{ "items": "1" },
+                        "600" :{ "items" : "1" },
+                        "768" :{ "items" : "1" },
+                        "1200":{ "items" : "2" },
                         "1800":{ "items" : "3" }
                     }
                 }'>
@@ -3427,22 +3427,22 @@
                                             <div class="testimonial-style1-content">
                                                 <div class="theme_carousel testimonial-carousel-nine owl-nav-style-one owl-theme owl-carousel"
                                                     data-options='{
-                        "loop": true, 
-                        "margin": 30, 
-                        "autoheight":true, 
-                        "lazyload":true, 
-                        "nav": true, 
-                        "dots": false, 
-                        "autoplay": true, 
-                        "autoplayTimeout": 5000, 
-                        "smartSpeed": 500, 
+                        "loop": true,
+                        "margin": 30,
+                        "autoheight":true,
+                        "lazyload":true,
+                        "nav": true,
+                        "dots": false,
+                        "autoplay": true,
+                        "autoplayTimeout": 5000,
+                        "smartSpeed": 500,
                         "navText": ["<span class=\"left icon-right-arrow-1\"></span>",
-                        "<span class=\"right icon-right-arrow-1\"></span>"], 
-                        "responsive":{ 
-                        "0" :{ "items": "1" }, 
-                        "600" :{ "items" : "1" }, 
-                        "768" :{ "items" : "2" }, 
-                        "992":{ "items" : "3" }, 
+                        "<span class=\"right icon-right-arrow-1\"></span>"],
+                        "responsive":{
+                        "0" :{ "items": "1" },
+                        "600" :{ "items" : "1" },
+                        "768" :{ "items" : "2" },
+                        "992":{ "items" : "3" },
                         "1200":{ "items" : "3" }
                         }
                     }'>

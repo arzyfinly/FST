@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\ContentProfile;
 use App\Models\Profil;
 use App\Http\Requests\SejarahRequest;
 use Illuminate\Support\Facades\Auth;
@@ -21,14 +22,20 @@ class SejarahController extends Controller
 
     public function index(Request $request)
     {
-        $sejarahAll = Profil::where('category_profile_id', '1')->get();
+        $profil = Profil::where('category_profile_id', '1')->first();
+        if($profil == null){
+            $sejarahAll = ContentProfile::where('profil_id', 0)->get();
+        }else{
+            $sejarahAll = ContentProfile::where('profil_id', $profil->id)->get();
+        }
+        // dd($sejarahAll);
         if ($request->ajax()) {
             return DataTables::of($sejarahAll)
                 ->addColumn('title', function ($row) {
                     return $row->title;
                 })
                 ->addColumn('keyword', function ($row) {
-                    return $row->keyword;
+                    return $row->profil->keyword;
                 })
                 ->addColumn('description', function ($row) {
                     return $row->description;
@@ -43,7 +50,7 @@ class SejarahController extends Controller
                     return $hasil;
                 })
                 ->addColumn('image-header', function ($row) {
-                    $header = '<img src="/images/sejarah-fakultas/' . $row->image_header . '" alt="FST" title="FST" width="100px" />';
+                    $header = '<img src="/images/sejarah-fakultas/' . $row->profil->image_header . '" alt="FST" title="FST" width="100px" />';
                     return $header;
                 })
                 ->addColumn('image-content', function ($row) {
@@ -54,7 +61,7 @@ class SejarahController extends Controller
                     return $row->date;
                 })
                 ->addColumn('category', function ($row) {
-                    return $row->categoryProfile->name;
+                    return $row->profil->categoryProfile->name;
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->publish == '0') {
@@ -92,27 +99,17 @@ class SejarahController extends Controller
             'title'                 => 'required',
             'keyword'               => 'required',
             'description'           => 'required|max:150',
+            'image_header'          => 'required',
+            'category_profile_id'   => 'required',
             'content'               => 'required',
             'image_content'         => 'required',
-            'image_header'          => 'required',
             'date'                  => 'required',
             'publish'               => 'nullable',
-            'category_profile_id'   => 'required',
         ]);
 
         $data = $request->all();
         $path = 'images/sejarah-fakultas';
         $file = $request->hasfile('image_header');
-
-
-        if ($data['publish'] == 1 && $data['category_profile_id'] == 1 && Profil::where('category_profile_id', '1')->count() > 0) {
-            $sejarah = Profil::where('category_profile_id', '1')
-                ->where('publish', '1')
-                ->first();
-            $sejarah->publish = 0;
-            $sejarah->save();
-        }
-        // dd($data);
 
         if ($request->hasfile('image_header') && $request->hasfile('image_content')) {
             $file = $request->file('image_header');
@@ -126,7 +123,43 @@ class SejarahController extends Controller
             $data['image_content'] = $nama_file;
         }
 
-        Profil::create($data);
+        if (Profil::where('category_profile_id', '1')->count() > 0) {
+            $profil = Profil::where('category_profile_id', '1')->first();
+
+            if ($data['publish'] == 1 && ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->count() > 0) {
+                $sejarah = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')
+                ->first();
+                $sejarah->publish = 0;
+                $sejarah->save();
+            }
+
+            $profil->update([
+                'keyword'               => $data['keyword'],
+                'image_header'          => $data['image_header'],
+                'category_profile_id'   => $data['category_profile_id'],
+            ]);
+
+        } else {
+            $profil = Profil::create([
+                'keyword'               => $data['keyword'],
+                'image_header'          => $data['image_header'],
+                'category_profile_id'   => $data['category_profile_id'],
+            ]);
+        }
+        // dd($data);
+
+        $content = [
+            'profil_id'             => $profil->id,
+            'title'                 => $data['title'],
+            'description'           => $data['description'],
+            'content'               => $data['content'],
+            'image_content'         => $data['image_content'],
+            'date'                  => $data['date'],
+            'publish'               => $data['publish'],
+        ];
+
+        ContentProfile::create($content);
+
 
 
         return redirect()->route('sejarah-fst.index');
@@ -139,13 +172,13 @@ class SejarahController extends Controller
 
     public function edit($sejarah_fst)
     {
-        $sejarah = Profil::Find($sejarah_fst);
+        $sejarah = ContentProfile::Find($sejarah_fst);
         return view('admin.profil.sejarahfst.edit', compact('sejarah'));
     }
 
     public function update(Request $request, $sejarah_fst)
     {
-        $fst_sejarah = Profil::Find($sejarah_fst);
+        $fst_sejarah = ContentProfile::Find($sejarah_fst);
         $request->validate([
             'title'                 => 'required',
             'keyword'               => 'required',
@@ -163,7 +196,7 @@ class SejarahController extends Controller
         }
 
         if($request['image_header'] == null) {
-            $request['image_header'] = $fst_sejarah['image_header'];
+            $request['image_header'] = $fst_sejarah->profil->image_header;
 
         }
 
@@ -196,7 +229,8 @@ class SejarahController extends Controller
         }
 
         if ($data['publish'] == 1 && $data['category_profile_id'] == 1) {
-            $sejarah = Profil::where('category_profile_id', '1')
+            $profil = Profil::where('category_profile_id', '1')->first();
+            $sejarah = ContentProfile::where('profil_id', $profil->id)
                 ->where('publish', '1')
                 ->first();
                 if($sejarah){
@@ -205,17 +239,24 @@ class SejarahController extends Controller
                 }
         }
         // dd($data);
+        $profil = Profil::where('category_profile_id', 1)->first();
+
+        $profil->update([
+            'keyword'               => $data['keyword'],
+            'image_header'          => $data['image_header'],
+            'category_profile_id'   => $data['category_profile_id'],
+        ]);
+
         $fst_sejarah->update([
             'title'                 => $data['title'],
-            'keyword'               => $data['keyword'],
             'description'           => $data['description'],
             'content'               => $data['content'],
-            'image_header'          => $data['image_header'],
             'image_content'         => $data['image_content'],
             'date'                  => $data['date'],
             'publish'               => $data['publish'],
-            'category_profile_id'   => $data['category_profile_id'],
         ]);
+
+
 
         return redirect()->route('sejarah-fst.index');
 
@@ -223,13 +264,18 @@ class SejarahController extends Controller
 
     public function destroy($sejarah_fst)
     {
-        $fst_sejarah = Profil::Find($sejarah_fst);
+        $fst_sejarah = ContentProfile::Find($sejarah_fst);
         $path = '/images/sejarah-fakultas';
 
         if ("/images/sejarah-fakultas".$fst_sejarah->file) {
             File::delete("/images/sejarah-fakultas".$fst_sejarah->file);
         }
         $fst_sejarah->delete();
+
+        if(ContentProfile::Where('profil_id', $fst_sejarah->id)->count() <= 0){
+            $profil = Profil::where('category_profile_id', 1)->first();
+            $profil->delete();
+        }
 
         return response()->json([
             'success' => true,

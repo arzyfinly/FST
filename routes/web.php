@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\{
-    SejarahController, DashboardController
+    SejarahController, VisiMisiTujuanController, DashboardController
 };
 use App\Http\Controllers\{
     ProfilController, HomeController
@@ -22,13 +22,21 @@ use App\Http\Controllers\{
 Route::redirect('/', '/home');
 Route::get('/home',                                                [HomeController::class, 'index'])->name('home');
 Route::get('/profil/sejarah-fst/',                                 [ProfilController::class, 'sejarah'])->name('guest.sejarah');
+Route::get('/profil/visi-misi-tujuan-fst/',                        [ProfilController::class, 'visiMisiTujuanFst'])->name('guest.visi-misi');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('sejarah-fst',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    Route::get('visi-misi-tujuan-fst',                                                        [VisiMisiTujuanController::class, 'show'])->name('visi-misi-tujuan-fst.show');
+    // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
     Route::resource('admin/profil/sejarah-fst',                           SejarahController::class)->except(['show']);
-    Route::get(     '',                                                      [SejarahController::class, 'show'])->name('sejarah-fst.show');
-    // Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);                          //index
+    Route::resource('admin/profil/visi-misi-tujuan-fst',                  VisiMisiTujuanController::class)->except(['show']);
+    // Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);          //index
 });
 // profil
 // Route::get('profil/visi-misi-tujuan-fst',           [ProfilController::class, 'visiMisiIndex']);            //index
