@@ -19,9 +19,9 @@ class ProfilController extends Controller
 
     public function visiMisiTujuanFst()
     {
-        $visimisitujuan = Profil::where('category_profile_id', '2')
-                         ->where('publish', '1')
-                         ->get();
-        return view('guest.profil.visimisitujuanfst.index', compact('visimisitujuan'));
+        $profil = Profil::where('category_profile_id', '2')->first();
+        $visimisitujuan = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->first();
+
+        return view('guest.profil.visimisitujuan.index', compact('visimisitujuan'));
     }
 }

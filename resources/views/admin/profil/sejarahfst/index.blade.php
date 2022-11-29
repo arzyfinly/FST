@@ -35,8 +35,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tittle</th>
-                                <th>Keyword</th>
-                                <th>Description</th>
                                 <th>Content</th>
                                 <th>Image Header</th>
                                 <th>Image Content</th>
@@ -48,8 +46,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tittle</th>
-                                <th>Keyword</th>
-                                <th>Description</th>
                                 <th>Content</th>
                                 <th>Image Header</th>
                                 <th>Image Content</th>
@@ -71,7 +67,7 @@
             // var api = "{{ env('API_URL') }}";
 
             $('#dataTable').DataTable({
-                // processing: true,
+                processing: true,
                 serverSide: true,
                 ajax: {
                     url: "{{ route('sejarah-fst.index') }}",
@@ -90,12 +86,6 @@
                     },
                     {
                         data: 'title',
-                    },
-                    {
-                        data: 'keyword',
-                    },
-                    {
-                        data: 'description',
                     },
                     {
                         data: 'content',

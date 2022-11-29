@@ -27,8 +27,9 @@ Route::get('/profil/visi-misi-tujuan-fst/',                        [ProfilContro
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('sejarah-fst',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
-    Route::get('visi-misi-tujuan-fst',                                                        [VisiMisiTujuanController::class, 'show'])->name('visi-misi-tujuan-fst.show');
+    Route::get('/dashboard',                                                                [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('sejarah-fst',                                                               [SejarahController::class, 'show'])->name('sejarah-fst.show');
+    Route::get('visi-misi-tujuan-fst',                                                      [VisiMisiTujuanController::class, 'show'])->name('visi-misi-tujuan-fst.show');
     // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
     // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
     // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');

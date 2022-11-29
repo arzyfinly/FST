@@ -34,13 +34,6 @@ class SejarahController extends Controller
                 ->addColumn('title', function ($row) {
                     return $row->title;
                 })
-                ->addColumn('keyword', function ($row) {
-                    return $row->profil->keyword;
-                })
-                ->addColumn('description', function ($row) {
-                    return $row->description;
-                })
-
                 ->addColumn('content', function ($row) {
                     $text_content = $row->content;
 
@@ -95,28 +88,51 @@ class SejarahController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'title'                 => 'required',
-            'keyword'               => 'required',
-            'description'           => 'required|max:150',
-            'image_header'          => 'required',
-            'category_profile_id'   => 'required',
-            'content'               => 'required',
-            'image_content'         => 'required',
-            'date'                  => 'required',
-            'publish'               => 'nullable',
-        ]);
+        if(Profil::where('category_profile_id', '1')->first() != null){
+            $validated = $request->validate([
+                'title'                 => 'required',
+                'keyword'               => 'required',
+                'description'           => 'required|max:150',
+                'image_header'          => 'nullable',
+                'category_profile_id'   => 'required',
+                'content'               => 'required',
+                'image_content'         => 'required',
+                'date'                  => 'required',
+                'publish'               => 'nullable',
+            ]);
+        } else {
+            $validated = $request->validate([
+                'title'                 => 'required',
+                'keyword'               => 'required',
+                'description'           => 'required|max:150',
+                'image_header'          => 'required',
+                'category_profile_id'   => 'required',
+                'content'               => 'required',
+                'image_content'         => 'required',
+                'date'                  => 'required',
+                'publish'               => 'nullable',
+            ]);
+        }
+
+
 
         $data = $request->all();
         $path = 'images/sejarah-fakultas';
         $file = $request->hasfile('image_header');
 
-        if ($request->hasfile('image_header') && $request->hasfile('image_content')) {
+        if ($request['image_header'] == null) {
+            $header_cache = Profil::where('category_profile_id', '1')->first();
+
+            $data['image_header'] = $header_cache['image_header'];
+        }
+
+        if ($request->hasfile('image_header')) {
             $file = $request->file('image_header');
             $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
             $file->move($path, $file_name);
             $data['image_header'] = $file_name;
-
+        }
+        if ($request->hasfile('image_content')) {
             $file = $request->file('image_content');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
             $file->move($path, $nama_file);
@@ -126,7 +142,7 @@ class SejarahController extends Controller
         if (Profil::where('category_profile_id', '1')->count() > 0) {
             $profil = Profil::where('category_profile_id', '1')->first();
 
-            if ($data['publish'] == 1 && ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->count() > 0) {
+            if ($request['publish'] && $request['publish'] == 1 && ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->count() > 0) {
                 $sejarah = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')
                 ->first();
                 $sejarah->publish = 0;
@@ -148,15 +164,26 @@ class SejarahController extends Controller
         }
         // dd($data);
 
+        if ($request['publish']) {
         $content = [
-            'profil_id'             => $profil->id,
-            'title'                 => $data['title'],
-            'description'           => $data['description'],
-            'content'               => $data['content'],
-            'image_content'         => $data['image_content'],
-            'date'                  => $data['date'],
-            'publish'               => $data['publish'],
-        ];
+                'profil_id'             => $profil->id,
+                'title'                 => $data['title'],
+                'description'           => $data['description'],
+                'content'               => $data['content'],
+                'image_content'         => $data['image_content'],
+                'date'                  => $data['date'],
+                'publish'               => $data['publish'],
+            ];
+        } else {
+            $content = [
+                'profil_id'             => $profil->id,
+                'title'                 => $data['title'],
+                'description'           => $data['description'],
+                'content'               => $data['content'],
+                'image_content'         => $data['image_content'],
+                'date'                  => $data['date'],
+            ];
+        }
 
         ContentProfile::create($content);
 
@@ -272,7 +299,7 @@ class SejarahController extends Controller
         }
         $fst_sejarah->delete();
 
-        if(ContentProfile::Where('profil_id', $fst_sejarah->id)->count() <= 0){
+        if(ContentProfile::Where('profil_id', $fst_sejarah->profil_id)->count() <= 0){
             $profil = Profil::where('category_profile_id', 1)->first();
             $profil->delete();
         }

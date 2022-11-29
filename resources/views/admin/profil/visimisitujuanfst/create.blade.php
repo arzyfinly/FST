@@ -1,6 +1,6 @@
 @extends('layout.app')
-@section('title', 'Sejarah')
-@section('sejarah-fst-active', 'active')
+@section('title', 'Visi Misi & Tujuan')
+@section('visi-misi-tujuan-fst-active', 'active')
 @section('profile-active', 'active')
 
 @section('content')
@@ -21,11 +21,11 @@
         }
     </style>
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('Sejarah') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ __('Visi Misi & Tujuan') }}</h1>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./">{{ __('Home') }}</a></li>
+            <li class="breadcrumb-item"><a href="/dashboard">{{ __('Home') }}</a></li>
             <li class="breadcrumb-item">{{ __('Profil') }}</li>
-            <li class="breadcrumb-item">{{ __('Sejarah FST') }}</li>
+            <li class="breadcrumb-item">{{ __('Visi Misi & Tujuan FST') }}</li>
             <li class="breadcrumb-item active" aria-current="page">{{ __('Create') }}</li>
         </ol>
     </div>
@@ -34,11 +34,11 @@
         <div class="col-lg-12">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Create Sejarah FST') }}</h6>
-                    {{-- <a href="{{ route('sejarah-fst.create') }}" data-toggle="tooltip" data-original-title="Create" class="btn btn-success  py-0"><b style="font-size: 27px">+</b></a> --}}
+                    <h6 class="m-0 font-weight-bold text-primary">{{ __('Create Visi Misi & Tujuan FST') }}</h6>
+                    {{-- <a href="{{ route('visi-misi-tujuan-fst.create') }}" data-toggle="tooltip" data-original-title="Create" class="btn btn-success  py-0"><b style="font-size: 27px">+</b></a> --}}
                 </div>
                 <div class="table-responsive p-3">
-                    <form action="{{ route('sejarah-fst.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('visi-misi-tujuan-fst.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <div class="row">
@@ -80,7 +80,7 @@
                                 <div class="col border-right">
                                     <div class="p-3 py-5">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <h4 class="text-right">Sejarah Fakultas</h4>
+                                            <h4 class="text-right">Visi Misi & Tujuan Fakultas</h4>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-md-6">
@@ -133,7 +133,7 @@
                                                     <input class="form-check-input" name="publish" type="checkbox"
                                                         value="1" id="checkbox-1" />
                                                     <input hidden name="category_profile_id" type="text"
-                                                        value="1" />
+                                                        value="2" />
                                                     <label class="form-check-label" for="checkbox-1">Checklist kotak
                                                         disamping untuk mempublish konten ini !! <br>
                                                         <small class="text-danger"> *otomatis menonaktifkan konten sebelumnya yang sudah Aktif </small>

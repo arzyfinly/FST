@@ -1,11 +1,11 @@
 @extends('layout.app')
-@section('title', 'Visi Misi & Tujuan FST')
+@section('title', 'Visi Misi & Tujuan')
 @section('visi-misi-tujuan-fst-active', 'active')
 @section('profile-active', 'active')
 
 @section('content')
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">{{ __('Visi Misi & Tujuan FST') }}</h1>
+        <h1 class="h3 mb-0 text-gray-800">{{ __('Visi Misi & Tujuan') }}</h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./">{{ __('Home') }}</a></li>
             <li class="breadcrumb-item">{{ __('Profil') }}</li>
@@ -35,8 +35,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tittle</th>
-                                <th>Keyword</th>
-                                <th>Description</th>
                                 <th>Content</th>
                                 <th>Image Header</th>
                                 <th>Image Content</th>
@@ -48,8 +46,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Tittle</th>
-                                <th>Keyword</th>
-                                <th>Description</th>
                                 <th>Content</th>
                                 <th>Image Header</th>
                                 <th>Image Content</th>
@@ -71,7 +67,7 @@
             // var api = "{{ env('API_URL') }}";
 
             $('#dataTable').DataTable({
-                // processing: true,
+                processing: true,
                 serverSide: true,
                 ajax: {
                     url: "{{ route('visi-misi-tujuan-fst.index') }}",
@@ -90,12 +86,6 @@
                     },
                     {
                         data: 'title',
-                    },
-                    {
-                        data: 'keyword',
-                    },
-                    {
-                        data: 'description',
                     },
                     {
                         data: 'content',

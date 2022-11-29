@@ -19,7 +19,7 @@ class CreateContentProfilesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->longText('content');
-            $table->string('image_content');
+            $table->string('image_content')->nullable();
             $table->date('date');
             $table->string('publish')->default('0');
             $table->timestamps();
