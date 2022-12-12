@@ -76,13 +76,42 @@ class VisiMisiTujuanController extends Controller
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.profil.visimisitujuanfst.index');
+        return view('admin.profil.visimisitujuanfst.index', compact('profil'));
+    }
+
+    public function header(Request $request)
+    {
+        $data = $request->all();
+        $path = 'images/visi-misi-fakultas';
+        $file = $request->hasfile('image_header');
+
+        if ($request['image_header'] == null) {
+            $header_cache = Profil::where('category_profile_id', 2)->first();
+
+            $data['image_header'] = $header_cache['image_header'];
+        }
+
+        if ($request->hasfile('image_header')) {
+            $file = $request->file('image_header');
+            $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
+            $file->move($path, $file_name);
+            $data['image_header'] = $file_name;
+        }
+        Profil::updateOrCreate(
+         [
+            'category_profile_id' => '2',
+         ],
+         [  'keyword'      => $data['keyword'],
+            'image_header' => $data['image_header'],
+         ]);
+
+        return redirect('admin/profil/visi-misi-tujuan-fst');;
     }
 
     public function create()
     {
-
-        return view('admin.profil.visimisitujuanfst.create');
+        $profil = Profil::where('category_profile_id', 2)->first();
+        return view('admin.profil.visimisitujuanfst.create', compact('profil'));
     }
 
     public function store(Request $request)
@@ -113,8 +142,6 @@ class VisiMisiTujuanController extends Controller
             ]);
         }
 
-
-
         $data = $request->all();
         $path = 'images/visi-misi-fakultas';
         $file = $request->hasfile('image_header');
@@ -141,12 +168,7 @@ class VisiMisiTujuanController extends Controller
         if (Profil::where('category_profile_id', 2)->count() > 0) {
             $profil = Profil::where('category_profile_id', 2)->first();
 
-            if ($request['publish'] && $request['publish'] == 1 && ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->count() > 0) {
-                $visimisi = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')
-                ->first();
-                $visimisi->publish = 0;
-                $visimisi->save();
-            }
+
 
             $profil->update([
                 'keyword'               => $data['keyword'],

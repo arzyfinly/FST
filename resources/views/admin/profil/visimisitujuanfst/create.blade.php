@@ -51,7 +51,11 @@
                                         <div class="col-sm">
                                             <div id="msg"></div>
                                             <div class="input-group my-3 text-center">
+                                                @if ($profil != null)
+                                                <img id="output1" src="{{ asset('images/visi-misi-fakultas/' . $profil->image_header) }}" class="img-thumbnail" />
+                                                @else
                                                 <img id="output1" class="img-thumbnail" />
+                                                @endif
                                             </div>
                                         </div>
                                         @error('image_header')
@@ -72,8 +76,7 @@
                                         @error('image_content')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
-                                        <button type="button" id="browse2" class="browse2 btn btn-primary ">Pilih
-                                            Gambar</button>
+                                        <button type="button" id="browse2" class="browse2 btn btn-primary ">Pilih Gambar</button>
                                     </div>
                                 </div>
 
@@ -93,7 +96,14 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="labels">Keyword</label>
-                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror" value=""
+                                                <input type="text" name="keyword" class="form-control @error('keyword') is-invalid @enderror"
+                                                @if ($profil != null)
+                                                value=" {{ $profil->keyword }} "
+
+                                                @else
+                                                value=""
+
+                                                @endif
                                                     placeholder="keyword">
                                                     @error('keyword')
                                             <small class="text-danger">{{ $message }}</small>

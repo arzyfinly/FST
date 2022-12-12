@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('',                                                        [SejarahController::class, 'show'])->name('sejarah-fst.show');
     Route::resource('admin/profil/sejarah-fst',                           SejarahController::class)->except(['show']);
     Route::resource('admin/profil/visi-misi-tujuan-fst',                  VisiMisiTujuanController::class)->except(['show']);
+    Route::post('admin/profil/visi-misi-tujuan-fst/header',               [VisiMisiTujuanController::class, 'header'])->name('visi-misi-tujuan-fst.header');
     // Route::resource('/admin/profil/Visi-Misi-&-Tujuan-fst/',           VisiMisiController::class);          //index
 });
 // profil
