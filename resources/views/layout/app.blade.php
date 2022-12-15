@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="{{ asset('assets/img/logo/logo.png') }}" rel="icon">
+    <link href="{{ asset('admin/images/logo.png') }}" rel="icon">
     <title>Admin - FST @yield('title')</title>
     <link rel="stylesheet" href="{{ asset('assets/vendor/leaflet/leaflet.css') }}"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="

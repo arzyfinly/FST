@@ -4,7 +4,7 @@
     <div data-elementor-type="wp-page" data-elementor-id="439" class="elementor elementor-439">
         <section class="breadcrumb-style9-area">
             <div class="breadcrumb-style9-area-bg"
-                style="background-image: url('{{ asset('images/visi-misi-fakultas/' . $visimisitujuan->profil->image_header) }}');">
+                style="background-image: url('{{ asset('images/visi-misi-fakultas/' . $profil->image_header) }}');">
             </div>
             <div class="container">
                 <div class="row">
@@ -35,11 +35,28 @@
                 <div class="auto-container">
                     <div class="row">
                         <div class="col-xl-6">
-                            <div class="statements-img-box">
-                                <div class="statements-img-box__bg"
-                                    style="background-image: url('{{ asset('images/visi-misi-fakultas/' . $visimisitujuan->image_content) }}');">
-                                </div>
-                            </div>
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        @foreach ($visimisitujuan as $row)
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{$row->loop}}" @if ($row->title == 'VISI') class="active" @endif></li>
+                                        @endforeach
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        @foreach ($visimisitujuan as $row)
+                                        <div class="carousel-item @if ($row->title == 'VISI') active @endif">
+                                            <img class="d-block w-100" style="height: 710px" src="{{ asset('images/visi-misi-fakultas/' . $row->image_content) }}">
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                      <span class="sr-only">Next</span>
+                                    </a>
+                                  </div>
                         </div>
                         <div class="col-xl-6">
                             <div class="statements-content-box">
@@ -73,49 +90,22 @@
                                         <div class="owl-stage-outer">
                                             <div class="owl-stage"
                                                 style="transform: translate3d(-488px, 0px, 0px); transition: all 0.5s ease 0s; width: 976px;">
-                                                <div class="owl-item" style="width: 488px;">
+                                                @foreach ($visimisitujuan as $row)
+                                                <div class="owl-item @if ($row->title == 'VISI')
+                                                    active
+                                                @endif" style="width: 488px;">
                                                     <div class="item">
                                                         <div class="single-statements-item">
                                                             <div class="icon"></div>
                                                             <div class="text">
-                                                                <h3>{{ $visimisitujuan->title }}</h3>
-                                                                <p class="text-break"> {{ $visimisitujuan->content }} </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-statements-item">
-                                                            <div class="icon"></div>
-                                                            <div class="text">
-                                                                <h3>Vision Statement</h3>
-                                                                <p>Lirinking from toil &amp; pain these
-                                                                    cases are perfectly in
-                                                                    simple easy distinguish.</p>
+                                                                <h3>{{ $row->title }}</h3>
+                                                                <p class="text-break">{{ $row->content }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="owl-item active" style="width: 488px;">
-                                                    <div class="item">
-                                                        <div class="single-statements-item">
-                                                            <div class="icon"></div>
-                                                            <div class="text">
-                                                                <h3>Health Sciences</h3>
-                                                                <p>These cases are perfectly simple and easy
-                                                                    distinguish. The same as saying through
-                                                                    shrinking from toil &amp; pain in a free
-                                                                    hour when our power.</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-statements-item">
-                                                            <div class="icon"></div>
-                                                            <div class="text">
-                                                                <h3>Student Statement</h3>
-                                                                <p>Pain these cases toil &amp; pain these
-                                                                    cases are perfectly in simple easy
-                                                                    distinguish.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @endforeach
+
                                             </div>
                                         </div>
                                         <div class="owl-dots"><button role="button"

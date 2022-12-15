@@ -292,17 +292,12 @@ class SejarahController extends Controller
     public function destroy($sejarah_fst)
     {
         $fst_sejarah = ContentProfile::Find($sejarah_fst);
-        $path = '/images/sejarah-fakultas';
+        $path = '/images/sejarah-fakultas/';
 
-        if ("/images/sejarah-fakultas".$fst_sejarah->file) {
-            File::delete("/images/sejarah-fakultas".$fst_sejarah->file);
+        if (File::exists("/images/sejarah-fakultas/".$fst_sejarah->file)) {
+            File::delete("/images/sejarah-fakultas/".$fst_sejarah->file);
         }
         $fst_sejarah->delete();
-
-        if(ContentProfile::Where('profil_id', $fst_sejarah->profil_id)->count() <= 0){
-            $profil = Profil::where('category_profile_id', 1)->first();
-            $profil->delete();
-        }
 
         return response()->json([
             'success' => true,

@@ -66,8 +66,8 @@
                         <h6 class="m-0 font-weight-bold text-primary">Content</h6>
                     </div>
                     <div class="p-1">
-                        <a href="{{ route('visi-misi-tujuan-fst.create') }}" data-toggle="tooltip" data-original-title="Create"
-                            class="btn btn-success"><span><i class="fas fa-plus"></i></span></a>
+                        <button data-toggle="modal" data-target=".bd-example-modal-lg" data-original-title="Create"
+                            class="btn btn-success"><span><i class="fas fa-plus"></i></span></button>
                     </div>
                 </div>
                 <div class="table-responsive p-3">
@@ -75,9 +75,8 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>#</th>
-                                <th>Tittle</th>
+                                <th>Title</th>
                                 <th>Content</th>
-                                <th>Image Header</th>
                                 <th>Image Content</th>
                                 <th>Publish</th>
                                 <th>Action</th>
@@ -86,9 +85,8 @@
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>Tittle</th>
+                                <th>Title</th>
                                 <th>Content</th>
-                                <th>Image Header</th>
                                 <th>Image Content</th>
                                 <th>Publish</th>
                                 <th>Action</th>
@@ -114,6 +112,19 @@
             output1.src = URL.createObjectURL(event.target.files[0]);
             output1.onload = function() {
                 URL.revokeObjectURL(output1.src) // free memory
+            }
+        };
+
+        $(document).on("click", "#browse2", function() {
+            var file2 = $(this).parents().find(".file2");
+            file2.trigger("click");
+        });
+
+        var loadFile2 = function(event) {
+            var output2 = document.getElementById('output2');
+            output2.src = URL.createObjectURL(event.target.files[0]);
+            output2.onload = function() {
+                URL.revokeObjectURL(output2.src) // free memory
             }
         };
     </script>
@@ -146,9 +157,6 @@
                         data: 'content',
                     },
                     {
-                        data: 'image-header',
-                    },
-                    {
                         data: 'image-content',
                     },
                     {
@@ -162,4 +170,5 @@
         });
     </script>
     @include('admin.profil.visimisitujuanfst.scriptdelete')
+    @include('admin.profil.visimisitujuanfst.create')
 @endsection

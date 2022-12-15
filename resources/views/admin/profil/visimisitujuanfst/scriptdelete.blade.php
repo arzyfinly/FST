@@ -2,11 +2,11 @@
 <script>
     function deleteItem(e) {
         let id = e.getAttribute('data-id');
-        var url = '{{ route("sejarah-fst.destroy", ":id") }}';
+        var url = '{{ route("visi-misi-tujuan-fst.destroy", ":id") }}';
         url = url.replace(':id', id);
         Swal.fire({
             title: 'Kamu yakin ?',
-            text: "ingin menghapus data sejarah ini ?",
+            text: "ingin menghapus data visi misi tujuan ini ?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',

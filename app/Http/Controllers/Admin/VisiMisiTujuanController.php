@@ -41,19 +41,9 @@ class VisiMisiTujuanController extends Controller
                     $hasil = "$hasil.............";
                     return $hasil;
                 })
-                ->addColumn('image-header', function ($row) {
-                    $header = '<img src="/images/visi-misi-fakultas/' . $row->profil->image_header . '" alt="FST" title="FST" width="100px" />';
-                    return $header;
-                })
                 ->addColumn('image-content', function ($row) {
                     $content = '<img src="/images/visi-misi-fakultas/' . $row->image_content . '" alt="FST" title="FST" width="100px"/>';
                     return $content;
-                })
-                ->addColumn('date', function ($row) {
-                    return $row->date;
-                })
-                ->addColumn('category', function ($row) {
-                    return $row->profil->categoryProfile->name;
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->publish == '0') {
@@ -72,7 +62,7 @@ class VisiMisiTujuanController extends Controller
 
                     return $btn;
                 })
-                ->rawColumns(['image-header', 'image-content', 'status', 'action'])
+                ->rawColumns(['image-content', 'status', 'action'])
                 ->addIndexColumn()
                 ->make(true);
         }
@@ -116,101 +106,63 @@ class VisiMisiTujuanController extends Controller
 
     public function store(Request $request)
     {
-        if(Profil::where('category_profile_id', 2)->first() != null){
+
             $validated = $request->validate([
                 'title'                 => 'required',
-                'keyword'               => 'required',
                 'description'           => 'required|max:150',
-                'image_header'          => 'nullable',
-                'category_profile_id'   => 'required',
                 'content'               => 'required',
                 'image_content'         => 'required',
                 'date'                  => 'required',
                 'publish'               => 'nullable',
             ]);
-        } else {
-            $validated = $request->validate([
-                'title'                 => 'required',
-                'keyword'               => 'required',
-                'description'           => 'required|max:150',
-                'image_header'          => 'required',
-                'category_profile_id'   => 'required',
-                'content'               => 'required',
-                'image_content'         => 'required',
-                'date'                  => 'required',
-                'publish'               => 'nullable',
-            ]);
-        }
 
         $data = $request->all();
         $path = 'images/visi-misi-fakultas';
-        $file = $request->hasfile('image_header');
 
-        if ($request['image_header'] == null) {
-            $header_cache = Profil::where('category_profile_id', 2)->first();
-
-            $data['image_header'] = $header_cache['image_header'];
-        }
-
-        if ($request->hasfile('image_header')) {
-            $file = $request->file('image_header');
-            $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $file_name);
-            $data['image_header'] = $file_name;
-        }
         if ($request->hasfile('image_content')) {
             $file = $request->file('image_content');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
             $file->move($path, $nama_file);
             $data['image_content'] = $nama_file;
         }
-
-        if (Profil::where('category_profile_id', 2)->count() > 0) {
-            $profil = Profil::where('category_profile_id', 2)->first();
-
-
-
-            $profil->update([
-                'keyword'               => $data['keyword'],
-                'image_header'          => $data['image_header'],
-                'category_profile_id'   => $data['category_profile_id'],
-            ]);
-
-        } else {
-            $profil = Profil::create([
-                'keyword'               => $data['keyword'],
-                'image_header'          => $data['image_header'],
-                'category_profile_id'   => $data['category_profile_id'],
-            ]);
-        }
         // dd($data);
+        $profil = Profil::where('category_profile_id', '2')->first();
+        $content = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
+        if($profil){
+            if ($request['publish'] && $content < 3) {
+                $content = [
+                        'profil_id'             => $profil->id,
+                        'title'                 => $data['title'],
+                        'description'           => $data['description'],
+                        'content'               => $data['content'],
+                        'image_content'         => $data['image_content'],
+                        'date'                  => $data['date'],
+                        'publish'               => $data['publish'],
+                    ];
+                } else {
+                    $content = [
+                        'profil_id'             => $profil->id,
+                        'title'                 => $data['title'],
+                        'description'           => $data['description'],
+                        'content'               => $data['content'],
+                        'image_content'         => $data['image_content'],
+                        'date'                  => $data['date'],
+                    ];
+                }
+                ContentProfile::create($content);
 
-        if ($request['publish']) {
-        $content = [
-                'profil_id'             => $profil->id,
-                'title'                 => $data['title'],
-                'description'           => $data['description'],
-                'content'               => $data['content'],
-                'image_content'         => $data['image_content'],
-                'date'                  => $data['date'],
-                'publish'               => $data['publish'],
-            ];
+                return redirect()->route('visi-misi-tujuan-fst.index');
         } else {
-            $content = [
-                'profil_id'             => $profil->id,
-                'title'                 => $data['title'],
-                'description'           => $data['description'],
-                'content'               => $data['content'],
-                'image_content'         => $data['image_content'],
-                'date'                  => $data['date'],
-            ];
+            return response()->json([
+                'success' => false,
+                'message' => "Isi form Profil terlebih dahulu !!"
+            ],409);
         }
 
-        ContentProfile::create($content);
 
 
 
-        return redirect()->route('visi-misi-tujuan-fst.index');
+
     }
 
     public function show()
@@ -229,23 +181,15 @@ class VisiMisiTujuanController extends Controller
         $fst_vmt = ContentProfile::Find($visi_misi_tujuan_fst);
         $request->validate([
             'title'                 => 'required',
-            'keyword'               => 'required',
             'description'           => 'required|max:150',
             'content'               => 'required',
             'image_content'         => 'nullable',
-            'image_header'          => 'nullable',
             'date'                  => 'required',
             'publish'               => 'nullable',
-            'category_profile_id'   => 'required',
         ]);
 
         if ($request['publish'] == null) {
             $request['publish'] = 0;
-        }
-
-        if($request['image_header'] == null) {
-            $request['image_header'] = $fst_vmt->profil->image_header;
-
         }
 
         if($request['image_content'] == null) {
@@ -254,17 +198,6 @@ class VisiMisiTujuanController extends Controller
         }
         $data = $request->all();
         $path = 'images/visi-misi-fakultas';
-        $file = $request->hasfile('image_header');
-
-        if ($request->hasfile('image_header')) {
-            $file = $request->file('image_header');
-            $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $file_name);
-            if (File::exists('Images/visi-misi-fakultas/'.$fst_vmt['image_header'])) {
-                File::delete('Images/visi-misi-fakultas/'.$fst_vmt['image_header']);
-            }
-            $data['image_header'] = $file_name;
-        }
 
         if ($request->hasfile('image_content')) {
             $file = $request->file('image_content');
@@ -276,24 +209,14 @@ class VisiMisiTujuanController extends Controller
             $data['image_content'] = $nama_file;
         }
 
-        if ($data['publish'] == 1 && $data['category_profile_id'] == 1) {
+        if ($data['publish'] == 1) {
             $profil = Profil::where('category_profile_id', 2)->first();
-            $visimisi = ContentProfile::where('profil_id', $profil->id)
-                ->where('publish', '1')
-                ->first();
-                if($visimisi){
-                    $visimisi->publish = 0;
-                    $visimisi->save();
+            $visimisi = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
+                if($visimisi < 4){
+                    $data['publish'] = 0;
                 }
         }
         // dd($data);
-        $profil = Profil::where('category_profile_id', 2)->first();
-
-        $profil->update([
-            'keyword'               => $data['keyword'],
-            'image_header'          => $data['image_header'],
-            'category_profile_id'   => $data['category_profile_id'],
-        ]);
 
         $fst_vmt->update([
             'title'                 => $data['title'],
@@ -311,17 +234,12 @@ class VisiMisiTujuanController extends Controller
     public function destroy($visi_misi_tujuan_fst)
     {
         $fst_vmt = ContentProfile::Find($visi_misi_tujuan_fst);
-        $path = '/images/visi-misi-fakultas';
+        $path = '/images/visi-misi-fakultas/';
 
-        if ("/images/visi-misi-fakultas".$fst_vmt->file) {
-            File::delete("/images/visi-misi-fakultas".$fst_vmt->file);
+        if (File::exists("/images/visi-misi-fakultas/".$fst_vmt->image_content)) {
+            File::delete("/images/visi-misi-fakultas/".$fst_vmt->image_content);
         }
         $fst_vmt->delete();
-
-        if(ContentProfile::Where('profil_id', $fst_vmt->profil_id)->count() <= 0){
-            $profil = Profil::where('category_profile_id', 2)->first();
-            $profil->delete();
-        }
 
         return response()->json([
             'success' => true,
