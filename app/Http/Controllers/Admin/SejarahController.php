@@ -42,19 +42,9 @@ class SejarahController extends Controller
                     $hasil = "$hasil.............";
                     return $hasil;
                 })
-                ->addColumn('image-header', function ($row) {
-                    $header = '<img src="/images/sejarah-fakultas/' . $row->profil->image_header . '" alt="FST" title="FST" width="100px" />';
-                    return $header;
-                })
                 ->addColumn('image-content', function ($row) {
                     $content = '<img src="/images/sejarah-fakultas/' . $row->image_content . '" alt="FST" title="FST" width="100px"/>';
                     return $content;
-                })
-                ->addColumn('date', function ($row) {
-                    return $row->date;
-                })
-                ->addColumn('category', function ($row) {
-                    return $row->profil->categoryProfile->name;
                 })
                 ->addColumn('status', function ($row) {
                     if ($row->publish == '0') {
@@ -77,53 +67,22 @@ class SejarahController extends Controller
                 ->addIndexColumn()
                 ->make(true);
         }
-        return view('admin.profil.sejarahfst.index');
+        return view('admin.profil.sejarahfst.index', compact('profil'));
     }
-
-    public function create()
+    public function header(Request $request)
     {
-
-        return view('admin.profil.sejarahfst.create');
-    }
-
-    public function store(Request $request)
-    {
-        if(Profil::where('category_profile_id', '1')->first() != null){
-            $validated = $request->validate([
-                'title'                 => 'required',
-                'keyword'               => 'required',
-                'description'           => 'required|max:150',
-                'image_header'          => 'nullable',
-                'category_profile_id'   => 'required',
-                'content'               => 'required',
-                'image_content'         => 'required',
-                'date'                  => 'required',
-                'publish'               => 'nullable',
-            ]);
-        } else {
-            $validated = $request->validate([
-                'title'                 => 'required',
-                'keyword'               => 'required',
-                'description'           => 'required|max:150',
-                'image_header'          => 'required',
-                'category_profile_id'   => 'required',
-                'content'               => 'required',
-                'image_content'         => 'required',
-                'date'                  => 'required',
-                'publish'               => 'nullable',
-            ]);
-        }
-
-
-
         $data = $request->all();
         $path = 'images/sejarah-fakultas';
         $file = $request->hasfile('image_header');
 
+        $header_cache = Profil::where('category_profile_id', 1)->first();
         if ($request['image_header'] == null) {
-            $header_cache = Profil::where('category_profile_id', '1')->first();
 
             $data['image_header'] = $header_cache['image_header'];
+        }else{
+            if (File::exists('Images/sejarah-fakultas/'.$header_cache['image_header'])) {
+                File::delete('Images/sejarah-fakultas/'.$header_cache['image_header']);
+            }
         }
 
         if ($request->hasfile('image_header')) {
@@ -132,63 +91,75 @@ class SejarahController extends Controller
             $file->move($path, $file_name);
             $data['image_header'] = $file_name;
         }
-        if ($request->hasfile('image_content')) {
-            $file = $request->file('image_content');
-            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $nama_file);
-            $data['image_content'] = $nama_file;
-        }
+        Profil::updateOrCreate(
+         [
+            'category_profile_id' => '1',
+         ],
+         [  'keyword'      => $data['keyword'],
+            'image_header' => $data['image_header'],
+         ]);
 
-        if (Profil::where('category_profile_id', '1')->count() > 0) {
-            $profil = Profil::where('category_profile_id', '1')->first();
+        return redirect('admin/profil/sejarah-fst');
+    }
+    public function create()
+    {
 
-            if ($request['publish'] && $request['publish'] == 1 && ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->count() > 0) {
-                $sejarah = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')
-                ->first();
-                $sejarah->publish = 0;
-                $sejarah->save();
-            }
+        return view('admin.profil.sejarahfst.create');
+    }
 
-            $profil->update([
-                'keyword'               => $data['keyword'],
-                'image_header'          => $data['image_header'],
-                'category_profile_id'   => $data['category_profile_id'],
-            ]);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title'                 => 'required',
+            'description'           => 'required|max:150',
+            'content'               => 'required',
+            'image_content'         => 'required',
+            'date'                  => 'required',
+            'publish'               => 'nullable',
+        ]);
 
-        } else {
-            $profil = Profil::create([
-                'keyword'               => $data['keyword'],
-                'image_header'          => $data['image_header'],
-                'category_profile_id'   => $data['category_profile_id'],
-            ]);
-        }
-        // dd($data);
+    $data = $request->all();
+    $path = 'images/sejarah-fakultas';
 
-        if ($request['publish']) {
-        $content = [
-                'profil_id'             => $profil->id,
-                'title'                 => $data['title'],
-                'description'           => $data['description'],
-                'content'               => $data['content'],
-                'image_content'         => $data['image_content'],
-                'date'                  => $data['date'],
-                'publish'               => $data['publish'],
-            ];
-        } else {
+    if ($request->hasfile('image_content')) {
+        $file = $request->file('image_content');
+        $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
+        $file->move($path, $nama_file);
+        $data['image_content'] = $nama_file;
+    }
+    // dd($data);
+    $profil = Profil::where('category_profile_id', '1')->first();
+    $content = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
+    if($profil){
+        if ($request['publish'] && $content < 1) {
             $content = [
-                'profil_id'             => $profil->id,
-                'title'                 => $data['title'],
-                'description'           => $data['description'],
-                'content'               => $data['content'],
-                'image_content'         => $data['image_content'],
-                'date'                  => $data['date'],
-            ];
-        }
+                    'profil_id'             => $profil->id,
+                    'title'                 => $data['title'],
+                    'description'           => $data['description'],
+                    'content'               => $data['content'],
+                    'image_content'         => $data['image_content'],
+                    'date'                  => $data['date'],
+                    'publish'               => $data['publish'],
+                ];
+            } else {
+                $content = [
+                    'profil_id'             => $profil->id,
+                    'title'                 => $data['title'],
+                    'description'           => $data['description'],
+                    'content'               => $data['content'],
+                    'image_content'         => $data['image_content'],
+                    'date'                  => $data['date'],
+                ];
+            }
+            ContentProfile::create($content);
 
-        ContentProfile::create($content);
-
-
-
+            return redirect()->route('sejarah-fst.index');
+    } else {
+        return response()->json([
+            'success' => false,
+            'message' => "Isi form Profil terlebih dahulu !!"
+        ],409);
+    }
         return redirect()->route('sejarah-fst.index');
     }
 
@@ -205,76 +176,47 @@ class SejarahController extends Controller
 
     public function update(Request $request, $sejarah_fst)
     {
-        $fst_sejarah = ContentProfile::Find($sejarah_fst);
+        $sejarah = ContentProfile::Find($sejarah_fst);
         $request->validate([
             'title'                 => 'required',
-            'keyword'               => 'required',
             'description'           => 'required|max:150',
             'content'               => 'required',
             'image_content'         => 'nullable',
-            'image_header'          => 'nullable',
             'date'                  => 'required',
             'publish'               => 'nullable',
-            'category_profile_id'   => 'required',
         ]);
 
         if ($request['publish'] == null) {
             $request['publish'] = 0;
         }
 
-        if($request['image_header'] == null) {
-            $request['image_header'] = $fst_sejarah->profil->image_header;
-
-        }
-
         if($request['image_content'] == null) {
-            $request['image_content'] = $fst_sejarah['image_content'];
+            $request['image_content'] = $sejarah['image_content'];
 
         }
         $data = $request->all();
         $path = 'images/sejarah-fakultas';
-        $file = $request->hasfile('image_header');
-
-        if ($request->hasfile('image_header')) {
-            $file = $request->file('image_header');
-            $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $file_name);
-            if (File::exists('Images/sejarah-fakultas/'.$fst_sejarah['image_header'])) {
-                File::delete('Images/sejarah-fakultas/'.$fst_sejarah['image_header']);
-            }
-            $data['image_header'] = $file_name;
-        }
 
         if ($request->hasfile('image_content')) {
             $file = $request->file('image_content');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
             $file->move($path, $nama_file);
-            if (File::exists('Images/sejarah-fakultas/'.$fst_sejarah['image_content'])) {
-                File::delete('Images/sejarah-fakultas/'.$fst_sejarah['image_content']);
+            if (File::exists('Images/sejarah-fakultas/'.$sejarah['image_content'])) {
+                File::delete('Images/sejarah-fakultas/'.$sejarah['image_content']);
             }
             $data['image_content'] = $nama_file;
         }
 
-        if ($data['publish'] == 1 && $data['category_profile_id'] == 1) {
-            $profil = Profil::where('category_profile_id', '1')->first();
-            $sejarah = ContentProfile::where('profil_id', $profil->id)
-                ->where('publish', '1')
-                ->first();
-                if($sejarah){
-                    $sejarah->publish = 0;
-                    $sejarah->save();
+        if ($data['publish'] == 1) {
+            $profil = Profil::where('category_profile_id', 1)->first();
+            $visimisi = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
+                if($visimisi > 1){
+                    $data['publish'] = 0;
                 }
         }
         // dd($data);
-        $profil = Profil::where('category_profile_id', 1)->first();
 
-        $profil->update([
-            'keyword'               => $data['keyword'],
-            'image_header'          => $data['image_header'],
-            'category_profile_id'   => $data['category_profile_id'],
-        ]);
-
-        $fst_sejarah->update([
+        $sejarah->update([
             'title'                 => $data['title'],
             'description'           => $data['description'],
             'content'               => $data['content'],
@@ -283,10 +225,7 @@ class SejarahController extends Controller
             'publish'               => $data['publish'],
         ]);
 
-
-
         return redirect()->route('sejarah-fst.index');
-
     }
 
     public function destroy($sejarah_fst)

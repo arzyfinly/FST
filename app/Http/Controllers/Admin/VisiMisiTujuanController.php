@@ -75,10 +75,13 @@ class VisiMisiTujuanController extends Controller
         $path = 'images/visi-misi-fakultas';
         $file = $request->hasfile('image_header');
 
+        $header_cache = Profil::where('category_profile_id', 2)->first();
         if ($request['image_header'] == null) {
-            $header_cache = Profil::where('category_profile_id', 2)->first();
-
             $data['image_header'] = $header_cache['image_header'];
+        }else{
+            if (File::exists('Images/visi-misi-fakultas/'.$header_cache['image_header'])) {
+                File::delete('Images/visi-misi-fakultas/'.$header_cache['image_header']);
+            }
         }
 
         if ($request->hasfile('image_header')) {
@@ -95,7 +98,7 @@ class VisiMisiTujuanController extends Controller
             'image_header' => $data['image_header'],
          ]);
 
-        return redirect('admin/profil/visi-misi-tujuan-fst');;
+        return redirect('admin/profil/visi-misi-tujuan-fst');
     }
 
     public function create()
@@ -212,7 +215,7 @@ class VisiMisiTujuanController extends Controller
         if ($data['publish'] == 1) {
             $profil = Profil::where('category_profile_id', 2)->first();
             $visimisi = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
-                if($visimisi < 4){
+                if($visimisi > 3){
                     $data['publish'] = 0;
                 }
         }

@@ -23,7 +23,7 @@
             {{-- <h6 class="collapse-header">Data</h6> --}}
             <a class="collapse-item @yield('sejarah-fst-active')" href="{{ route('sejarah-fst.index') }}"> Sejarah Fakultas</a>
             <a class="collapse-item @yield('visi-misi-tujuan-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}"> Visi, Misi dan Tujuan Fakultas</a>
-            <a class="collapse-item @yield('profil-pimpinan-fakultas-active')" href="profil/pimpinan-fakultas">Profil Pimpinan Fakultas</a>
+            <a class="collapse-item @yield('profil-pimpinan-fakultas-active')" href="{{ route('pimpinan-fst.index') }}">Profil Pimpinan Fakultas</a>
             <a class="collapse-item @yield('profil-staff-dosen-active')" href="profil/staff-dosen">Profil Staff Dosen</a>
             <a class="collapse-item @yield('profil-tenaga-kependidikan-active')" href="profil/tenaga-kependidikan">Profil Tenaga Kependidikan</a>
             <a class="collapse-item @yield('identitas-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}">Identitas FST</a>

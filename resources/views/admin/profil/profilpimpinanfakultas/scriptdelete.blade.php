@@ -2,7 +2,7 @@
 <script>
     function deleteItem(e) {
         let id = e.getAttribute('data-id');
-        var url = '{{ route("sejarah-fst.destroy", ":id") }}';
+        var url = '{{ route("pimpinan-fst.destroy", ":id") }}';
         url = url.replace(':id', id);
         Swal.fire({
             title: 'Kamu yakin ?',
