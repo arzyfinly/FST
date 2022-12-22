@@ -75,20 +75,18 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Image Content</th>
-                                <th>Publish</th>
+                                <th>Gelar</th>
+                                <th>Nama</th>
+                                <th>Foto</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Image Content</th>
-                                <th>Publish</th>
+                                <th>Gelar</th>
+                                <th>Nama</th>
+                                <th>Foto</th>
                                 <th>Action</th>
                             </tr>
                         </tfoot>
@@ -158,9 +156,6 @@
                     },
                     {
                         data: 'image-content',
-                    },
-                    {
-                        data: 'status',
                     },
                     {
                         data: 'action',

@@ -130,7 +130,6 @@ class ProfilPimpinanController extends Controller
     $profil = Profil::where('category_profile_id', '3')->first();
     $content = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
     if($profil){
-        if ($request['publish'] && $content < 1) {
             $content = [
                     'profil_id'             => $profil->id,
                     'title'                 => $data['title'],
@@ -138,20 +137,10 @@ class ProfilPimpinanController extends Controller
                     'content'               => $data['content'],
                     'image_content'         => $data['image_content'],
                     'date'                  => $data['date'],
-                    'publish'               => $data['publish'],
+                    'publish'               => '1',
                 ];
-            } else {
-                $content = [
-                    'profil_id'             => $profil->id,
-                    'title'                 => $data['title'],
-                    'description'           => $data['description'],
-                    'content'               => $data['content'],
-                    'image_content'         => $data['image_content'],
-                    'date'                  => $data['date'],
-                ];
-            }
-            ContentProfile::create($content);
 
+            ContentProfile::create($content);
             return redirect()->route('pimpinan-fst.index');
     } else {
         return response()->json([
@@ -209,9 +198,6 @@ class ProfilPimpinanController extends Controller
         if ($data['publish'] == 1) {
             $profil = Profil::where('category_profile_id', 3)->first();
             $visimisi = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get()->count();
-                if($visimisi > 1){
-                    $data['publish'] = 0;
-                }
         }
         // dd($data);
 
@@ -221,7 +207,7 @@ class ProfilPimpinanController extends Controller
             'content'               => $data['content'],
             'image_content'         => $data['image_content'],
             'date'                  => $data['date'],
-            'publish'               => $data['publish'],
+            'publish'               => '1',
         ]);
 
         return redirect()->route('pimpinan-fst.index');
@@ -230,16 +216,15 @@ class ProfilPimpinanController extends Controller
     public function destroy($pimpinan_fst)
     {
         $fst_pimpinan = ContentProfile::Find($pimpinan_fst);
-        $path = '/images/pimpinan-fakultas/';
 
-        if (File::exists("/images/pimpinan-fakultas/".$fst_pimpinan->file)) {
-            File::delete("/images/pimpinan-fakultas/".$fst_pimpinan->file);
+        if (File::exists("images/pimpinan-fakultas/".$fst_pimpinan->image_content)) {
+            File::delete("images/pimpinan-fakultas/".$fst_pimpinan->image_content);
         }
         $fst_pimpinan->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Data Sejarah berhasil dihapus!'
+            'message' => 'data pimpinan berhasil dihapus!'
         ],200);
     }
 }

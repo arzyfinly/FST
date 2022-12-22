@@ -100,13 +100,13 @@
                                             <li id="menu-item-4124"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4124">
                                                 <a title="College Programs"
-                                                    href="../college-programs/index.html"
+                                                    href="{{ route('guest.visi-misi') }}"
                                                     onClick="return true">Visi, Misi, dan Tujuan Fakultas</a>
                                             </li>
                                             <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
                                                 <a title="College Programs Details"
-                                                    href="../college-programs-details/index.html"
+                                                    href="{{ route('guest.pimpinan') }}"
                                                     onClick="return true">Profil Pimpinan Fakultas</a>
                                             </li>
                                             <li id="menu-item-2089"
@@ -308,7 +308,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        
+
                         </nav>
                         <!-- Main Menu End-->
                     </div>

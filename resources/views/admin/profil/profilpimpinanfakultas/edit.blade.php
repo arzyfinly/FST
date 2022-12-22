@@ -46,85 +46,63 @@
                                 <div class="col-md-3 border-right">
 
                                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                        <label class="labels mt-3"><strong>Gambar Content</strong></label>
+                                        <label class="labels mt-3"><strong>Foto 4x3</strong></label> <small class="text-danger">*recomended 175px X 155px</small>
                                         <input type="file" name="image_content" hidden
                                             class="file2 @error('image_content') is-invalid @enderror"
                                             id="file2" accept="image/*" onchange="loadFile2(event)">
                                         <div class="col-sm">
                                             <div id="msg"></div>
                                             <div class="input-group my-3 text-center">
-                                                <img id="output2" class="img-thumbnail" @isset($pimpinan->image_content) src="{{ asset('images/pimpinan-fakultas/'.$pimpinan->image_content) }}" @endisset @empty($pimpinan->image_content) src="{{ asset('images/default/upload-image.png') }}" @endempty>
+                                                <img id="output2" src="{{ asset('images/pimpinan-fakultas/'.$pimpinan->image_content) }}" class="img-thumbnail"/>
                                             </div>
                                         </div>
                                         @error('image_content')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                         <button type="button" id="browse2"
-                                            class="browse2 btn btn-primary ">Pilih Gambar</button>
+                                            class="browse2 btn btn-primary ">Pilih Foto</button>
                                     </div>
                                 </div>
 
                                 <div class="col border-right">
                                     <div class="p-3 py-5">
                                         <div class="d-flex justify-content-between align-items-center mb-3">
-                                            <h4 class="text-right">Pimpinan FST</h4>
+                                            <h4 class="text-right">Pimpinan Fakultas</h4>
                                         </div>
                                         <div class="row mt-2">
                                             <div class="col-md-12">
-                                                <label class="labels">Judul</label>
-                                                <input value="{{ $pimpinan->title }}" type="text" name="title"
-                                                    class="form-control @error('title') is-invalid @enderror"
-                                                    placeholder="judul" value="">
+                                                <label class="labels">Gelar</label>
+                                                <select class="form-control" name="title" @error('title') is-invalid @enderror placeholder="judul">
+
+                                                    <option @if($pimpinan->judul == "DEKAN") selected @endif value="DEKAN">DEKAN</option>
+                                                    <option @if($pimpinan->judul == "WAKIL DEKAN") selected @endif  value="WAKIL DEKAN">WAKIL DEKAN</option>
+                                                    <option @if($pimpinan->judul == "KAPRODI INFORMATIKA") selected @endif  value="KAPRODI INFORMATIKA">KAPRODI INFORMATIKA</option>
+                                                    <option @if($pimpinan->judul == "KAPRODI SISTEM INFORMASI") selected @endif  value="KAPRODI SISTEM INFORMASI">KAPRODI SISTEM INFORMASI</option>
+                                                    <option @if($pimpinan->judul == "KAPRODI TEKNIK INDUSTRI") selected @endif  value="KAPRODI TEKNIK INDUSTRI">KAPRODI TEKNIK INDUSTRI</option>
+                                                </select>
                                                 @error('title')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                         </div>
                                         <div class="row mt-3">
-                                            <div class="col-md-12">
-                                                <label class="labels">Diskripsi</label>
-                                                <input value="{{ $pimpinan->description }}" type="text" name="description"
-                                                    class="form-control @error('description') is-invalid @enderror"
-                                                    placeholder="diskripsi singkat konten" value="">
-                                                @error('description')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                            </div>
+                                            {{-- <div class="col-md-12"> --}}
+                                                <input type="text" hidden name="description" class="form-control" value="-">
+                                            {{-- </div> --}}
                                             <div class="col-md-12 mt-2">
-                                                <label class="labels">Konten</label>
-                                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="exampleFormControlTextarea1"
-                                                    rows="4" style="font-size: 10pt"> {{ $pimpinan->content }} </textarea>
-                                                <small class="text-danger"> *Isi konten minimal 1 paragraf dan
-                                                    tidak lebih dari 2 paragraf </small> <br>
+                                                <label class="labels">Nama pimpinan</label>
+                                                <input type="text" name="content" class="form-control" placeholder="Ex: Joni A.Md.Kom." value="{{ $pimpinan->content }}">
+                                                <small class="text-danger"> *Isi nama beserta gelarnya contoh: Muhammad Bagus Raga Maulidi A.Md.Kom. </small> <br>
                                                 @error('content')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
                                             </div>
                                             <div class="col-md-12 mt-2">
                                                 <label class="labels">Tanggal Post</label>
-                                                <input value="{{ $pimpinan->date }}" type="date" name="date"
-                                                    class="form-control @error('date') is-invalid @enderror"
-                                                    placeholder="" value="">
+                                                <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" placeholder="" value="{{ $pimpinan->date }}">
                                                 @error('date')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
-                                            </div>
-
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12">
-                                                <label class="labels">Publish</label>
-                                                <div class="form-check">
-                                                    <input @if($pimpinan->publish == 1) checked @endif class="form-check-input" name="publish" type="checkbox" value="1" id="checkbox-1" />
-                                                    <input value="{{ $pimpinan->category_profile_id }}" hidden name="category_profile_id" type="text"
-                                                        value="2" />
-                                                    <label class="form-check-label" for="checkbox-1">Checklist
-                                                        kotak
-                                                        disamping untuk mempublish konten ini !! <br>
-                                                        <small class="text-danger"> *otomatis menonaktifkan
-                                                            konten sebelumnya yang sudah Aktif </small>
-                                                    </label>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="mt-5 text-center"><button

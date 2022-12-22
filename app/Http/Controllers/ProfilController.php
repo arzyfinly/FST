@@ -23,4 +23,17 @@ class ProfilController extends Controller
         $visimisitujuan = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get();
         return view('guest.profil.visimisitujuan.index', compact('visimisitujuan', 'profil'));
     }
+
+    public function pimpinanFst()
+    {
+        $profil = Profil::where('category_profile_id', '3')->first();
+        $pimpinan = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->get();
+        $dekan = $pimpinan->where('title', 'DEKAN')->first();
+        $wakil_dekan = $pimpinan->where('title', 'WAKIL DEKAN')->first();
+        $kap_inf = $pimpinan->where('title', 'KAPRODI INFORMATIKA')->first();
+        // dd($kap_inf);
+        $kap_sis_inf = $pimpinan->where('title', 'KAPRODI SISTEM INFORMASI')->first();
+        $kap_tek_indus  = $pimpinan->where('title', 'KAPRODI TEKNIK INDUSTRI')->first();
+        return view('guest.profil.profilpimpinanfakultas.index', compact('pimpinan', 'profil', 'dekan','wakil_dekan', 'kap_inf', 'kap_sis_inf', 'kap_tek_indus'));
+    }
 }

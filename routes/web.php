@@ -23,6 +23,7 @@ Route::redirect('/', '/home');
 Route::get('/home',                                                [HomeController::class, 'index'])->name('home');
 Route::get('/profil/sejarah-fst/',                                 [ProfilController::class, 'sejarah'])->name('guest.sejarah');
 Route::get('/profil/visi-misi-tujuan-fst/',                        [ProfilController::class, 'visiMisiTujuanFst'])->name('guest.visi-misi');
+Route::get('/profil/pimpinan-fst/',                                [ProfilController::class, 'pimpinanFst'])->name('guest.pimpinan');
 
 Auth::routes();
 
