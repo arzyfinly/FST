@@ -7,12 +7,12 @@
                     <div class="footer-top-style9__inner">
                         <div class="left">
                             <div class="footer-logo-style9">
-                                <a href="../index.html">
-                                    <img src="../wp-content/uploads/2022/09/LogoH9.png" alt="Awesome Image">
+                                <a href="{{route('home')}}">
+                                    <img src="{{ asset('admin/images/logo.png') }}" alt="UNIBA Madura">
                                 </a>
                             </div>
                             <div class="inner-title">
-                                <h3><span>Register!..</span> to study in Next Academic Year 2022.</h3>
+                                <h3><span>Daftarkan</span> diri anda untuk next tahun akademik.</h3>
                             </div>
                         </div>
                         <div class="right">

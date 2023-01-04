@@ -29,33 +29,43 @@
         <div class="container text-center mt-5">
             <div class="row">
                 <div class="col-sm mb-5">
-                    <span style="font-size: 27px; color:black;"><strong> DEKAN </strong></span><br><br>
+                    @isset($dekan)
+                        <span style="font-size: 27px; color:black;"><strong> DEKAN </strong></span><br><br>
                         <img src="{{ asset('images/pimpinan-fakultas/'.$dekan->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$dekan->image_content) }}) 30 round;"><br>
-                    <span class="font-wight-light">{{ $dekan->content }}</span>
+                        <span class="font-wight-light">{{ $dekan->content }}</span>
+                    @endisset
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm mb-5">
-                    <span style="font-size: 27px; color:black;"><strong> WAKIL DEKAN </strong></span><br><br>
-                    <img class="oval" src="{{ asset('images/pimpinan-fakultas/'.$wakil_dekan->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$wakil_dekan->image_content) }}) 30 round;"><br>
-                    <span class="font-wight-light">{{ $wakil_dekan->content }}</span>
+                    @isset($wakil_dekan)
+                        <span style="font-size: 27px; color:black;"><strong> WAKIL DEKAN </strong></span><br><br>
+                        <img class="oval" src="{{ asset('images/pimpinan-fakultas/'.$wakil_dekan->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$wakil_dekan->image_content) }}) 30 round;"><br>
+                        <span class="font-wight-light">{{ $wakil_dekan->content }}</span>
+                    @endisset
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm mb-5">
+                    @isset($kap_inf)
                     <span style="font-size: 25px; color:black;"><strong> KAPRODI INFORMATIKA </strong></span><br><br>
                     <img class="oval" src="{{ asset('images/pimpinan-fakultas/'.$kap_inf->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$kap_inf->image_content) }}) 30 round;"><br>
                     <span class="font-wight-light">{{ $kap_inf->content }}</span>
+                    @endisset
                 </div>
                 <div class="col-sm">
+                    @isset($kap_sis_inf)
                     <span style="font-size: 25px; color:black;"><strong> KAPRODI SISTEM INFORMASI </strong></span><br><br>
                     <img class="oval" src="{{ asset('images/pimpinan-fakultas/'.$kap_sis_inf->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$kap_sis_inf->image_content) }}) 30 round;"><br>
                     <span class="font-wight-light">{{ $kap_sis_inf->content }}</span>
+                    @endisset
                 </div>
                 <div class="col-sm">
+                    @isset($kap_tek_indus)
                     <span style="font-size: 25px; color:black;"><strong> KAPRODI TEKNIK INDUSTRI </strong></span><br><br>
                     <img class="oval" src="{{ asset('images/pimpinan-fakultas/'.$kap_tek_indus->image_content) }}" style="border-radius: 45%; width:155px; max-height:175px; border-image: url({{ asset('images/pimpinan-fakultas/'.$kap_tek_indus->image_content) }}) 30 round;"><br>
                     <span class="font-wight-light">{{ $kap_tek_indus->content }}</span>
+                    @endisset
                 </div>
             </div>
         </div>

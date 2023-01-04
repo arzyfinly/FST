@@ -72,9 +72,12 @@
                                         <div class="row mt-2">
                                             <div class="col-md-12">
                                                 <label class="labels">Judul</label>
-                                                <input value="{{ $visimisi->title }}" type="text" name="title"
-                                                    class="form-control @error('title') is-invalid @enderror"
-                                                    placeholder="judul" value="">
+                                                <select name="title" class="form-control @error('title') is-invalid @enderror">
+                                                    <option> --- Select the title --- </option>
+                                                    <option @if($visimisi->title == 'VISI') selected @endif value="VISI">VISI</option>
+                                                    <option @if($visimisi->title == 'MISI') selected @endif value="MISI">MISI</option>
+                                                    <option @if($visimisi->title == 'TUJUAN') selected @endif value="TUJUAN">TUJUAN</option>
+                                                </select>
                                                 @error('title')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror

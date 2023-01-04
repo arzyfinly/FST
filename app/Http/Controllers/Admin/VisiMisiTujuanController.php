@@ -79,7 +79,7 @@ class VisiMisiTujuanController extends Controller
         if ($request['image_header'] == null) {
             $data['image_header'] = $header_cache['image_header'];
         }else{
-            if (File::exists('Images/visi-misi-fakultas/'.$header_cache['image_header'])) {
+            if ($header_cache != null) {
                 File::delete('Images/visi-misi-fakultas/'.$header_cache['image_header']);
             }
         }
@@ -231,7 +231,6 @@ class VisiMisiTujuanController extends Controller
         ]);
 
         return redirect()->route('visi-misi-tujuan-fst.index');
-
     }
 
     public function destroy($visi_misi_tujuan_fst)

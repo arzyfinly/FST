@@ -109,66 +109,30 @@
                                                     href="{{ route('guest.pimpinan') }}"
                                                     onClick="return true">Profil Pimpinan Fakultas</a>
                                             </li>
-                                            <li id="menu-item-2089"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
-                                                <a title="Academics" href="#" data-toggle="dropdown1"
-                                                    class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                    data-options="easing: easeOutQuart"
-                                                    onClick="return true">Profil Staff Dosen</a>
-                                                <ul role="menu" class="submenu">
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Staff Sistem Informasi</a>
-                                                    </li>
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Staff Informatika</a>
-                                                    </li>
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Staff Teknik Industri</a>
-                                                    </li>
-                                                </ul>
+                                            <li id="menu-item-4126"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
+                                                <a title="College Programs Details"
+                                                    href="{{ route('guest.staff-dosen-fst') }}"
+                                                    onClick="return true">Profil Dosen FST</a>
                                             </li>
-                                            <li id="menu-item-2089"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
-                                                <a title="Academics" href="#" data-toggle="dropdown1"
-                                                    class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                    data-options="easing: easeOutQuart"
-                                                    onClick="return true">Profil Tenaga Kependidikan</a>
-                                                <ul role="menu" class="submenu">
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Staff Tenaga Kependidikan</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li id="menu-item-4125"
+                                            {{-- <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
                                                 <a title="College Programs Details"
                                                     href="../college-programs-details/index.html"
                                                     onClick="return true">Identitas FST</a>
-                                            </li>
-                                            <li id="menu-item-4125"
+                                            </li> --}}
+                                            {{-- <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
                                                 <a title="College Programs Details"
                                                     href="../college-programs-details/index.html"
                                                     onClick="return true">Struktur Organisasi</a>
-                                            </li>
-                                            <li id="menu-item-4125"
+                                            </li> --}}
+                                            {{-- <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
                                                 <a title="College Programs Details"
                                                     href="../college-programs-details/index.html"
                                                     onClick="return true">Booklet FST</a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </li>
                                     <li id="menu-item-2089"
@@ -181,7 +145,7 @@
                                             <li id="menu-item-2099"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                 <a title="College Overview"
-                                                    href="../college-overview/index.html"
+                                                    href="{{route('guest.panduan-pendidikan-fst')}}"
                                                     onClick="return true">Panduan Pendidikan FST</a>
                                             </li>
                                             <li id="menu-item-2089"

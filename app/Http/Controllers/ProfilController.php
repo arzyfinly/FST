@@ -36,4 +36,13 @@ class ProfilController extends Controller
         $kap_tek_indus  = $pimpinan->where('title', 'KAPRODI TEKNIK INDUSTRI')->first();
         return view('guest.profil.profilpimpinanfakultas.index', compact('pimpinan', 'profil', 'dekan','wakil_dekan', 'kap_inf', 'kap_sis_inf', 'kap_tek_indus'));
     }
+    public function staffDosenFst()
+    {
+        $profil = Profil::where('category_profile_id', '4')->first();
+        $dosen = ContentProfile::where('profil_id', $profil->id)->where('publish', '1');
+        $informatika = $dosen->where('title', 'INFORMATIKA')->get();
+        $sisinfor = $dosen->where('title', 'SISTEM INFORMASI')->get();
+        $tekindustri = $dosen->where('title', 'TEKNIK INDUSTRI')->get();
+        return view('guest.profil.profilstaffdosen.index', compact('profil','dosen', 'informatika', 'sisinfor','tekindustri'));
+    }
 }

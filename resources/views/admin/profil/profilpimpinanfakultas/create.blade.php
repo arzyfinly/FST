@@ -44,6 +44,7 @@
                                                     <div class="col-md-12">
                                                         <label class="labels">Gelar</label>
                                                         <select class="form-control" name="title" @error('title') is-invalid @enderror placeholder="judul">
+                                                            <option>-- Select Gelar --</option>
                                                             <option value="DEKAN">DEKAN</option>
                                                             <option value="WAKIL DEKAN">WAKIL DEKAN</option>
                                                             <option value="KAPRODI INFORMATIKA">KAPRODI INFORMATIKA</option>

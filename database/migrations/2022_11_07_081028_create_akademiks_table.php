@@ -15,6 +15,9 @@ class CreateAkademiksTable extends Migration
     {
         Schema::create('akademiks', function (Blueprint $table) {
             $table->id();
+            $table->string('keyword');
+            $table->string('image_header');
+            $table->foreignId('category_academic_id')->constrained('category_academics');
             $table->timestamps();
         });
     }

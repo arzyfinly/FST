@@ -24,10 +24,10 @@
             <a class="collapse-item @yield('sejarah-fst-active')" href="{{ route('sejarah-fst.index') }}"> Sejarah Fakultas</a>
             <a class="collapse-item @yield('visi-misi-tujuan-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}"> Visi, Misi dan Tujuan Fakultas</a>
             <a class="collapse-item @yield('profil-pimpinan-fakultas-active')" href="{{ route('pimpinan-fst.index') }}">Profil Pimpinan Fakultas</a>
-            <a class="collapse-item @yield('profil-staff-dosen-active')" href="profil/staff-dosen">Profil Staff Dosen</a>
-            <a class="collapse-item @yield('profil-tenaga-kependidikan-active')" href="profil/tenaga-kependidikan">Profil Tenaga Kependidikan</a>
-            <a class="collapse-item @yield('identitas-fst-active')" href="{{ route('visi-misi-tujuan-fst.index') }}">Identitas FST</a>
-            <a class="collapse-item @yield('struktur-organisasi-active')" href="profil/struktur-organisasi">Struktur Organisasi</a>
+            <a class="collapse-item @yield('profil-staff-dosen-active')" href="{{ route('staff-dosen-fst.index') }}">Profil Staff Dosen</a>
+            {{-- <a class="collapse-item @yield('profil-tenaga-kependidikan-active')" href="profil/tenaga-kependidikan">Profil Tenaga Kependidikan</a> --}}
+            {{-- <a class="collapse-item @yield('identitas-fst-active')" href="{{ route('identitas-fst.index') }}">Identitas FST</a> --}}
+            {{-- <a class="collapse-item @yield('struktur-organisasi-active')" href="profil/struktur-organisasi">Struktur Organisasi</a> --}}
             {{-- <a class="collapse-item" href="popovers.html">Popovers</a>
             <a class="collapse-item" href="progress-bar.html">Progress Bars</a> --}}
           </div>
@@ -42,8 +42,8 @@
         <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             {{-- <h6 class="collapse-header">Data</h6> --}}
-            <a class="collapse-item @yield('panduan-pendidikan-fst-active')" href="akademik/panduan-pendidikan-fst">Panduan Pendidikan FST</a>
-            <a class="collapse-item @yield('program-studi-active')" href="akademik/program-studi">Program Studi</a>
+            <a class="collapse-item @yield('panduan-pendidikan-fst-active')" href="{{route('panduan-pendidikan-fst.index')}}">Panduan Pendidikan FST</a>
+            <a class="collapse-item @yield('program-studi-active')" href="{{ route('program-studi-fst.index') }}">Program Studi</a>
             <a class="collapse-item @yield('kalender-akademik-active')" href="akademik/kalender-akademik">Kalender Akademik</a>
             <a class="collapse-item @yield('kemahasiswaan-active')" href="akademik/kemahasiswaan">Kemahasiswaan</a>
             {{-- <a class="collapse-item" href="popovers.html">Popovers</a>

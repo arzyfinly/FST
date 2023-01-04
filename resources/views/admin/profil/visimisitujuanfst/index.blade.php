@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('title', 'Visi Misi & Tujuan')
-@section('profil-pimpinan-fakultas-active', 'active')
+@section('visi-misi-tujuan-fst-active', 'active')
 @section('profile-active', 'active')
 
 @section('content')

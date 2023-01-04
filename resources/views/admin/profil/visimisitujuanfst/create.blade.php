@@ -44,9 +44,12 @@
                                                 <div class="row mt-2">
                                                     <div class="col-md-12">
                                                         <label class="labels">Judul</label>
-                                                        <input type="text" name="title"
-                                                            class="form-control @error('title') is-invalid @enderror"
-                                                            placeholder="judul" value="">
+                                                        <select name="title" class="form-control @error('title') is-invalid @enderror">
+                                                            <option> --- Select the title --- </option>
+                                                            <option value="VISI">VISI</option>
+                                                            <option value="MISI">MISI</option>
+                                                            <option value="TUJUAN">TUJUAN</option>
+                                                        </select>
                                                         @error('title')
                                                             <small class="text-danger">{{ $message }}</small>
                                                         @enderror

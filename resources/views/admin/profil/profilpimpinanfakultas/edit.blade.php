@@ -74,11 +74,11 @@
                                                 <label class="labels">Gelar</label>
                                                 <select class="form-control" name="title" @error('title') is-invalid @enderror placeholder="judul">
 
-                                                    <option @if($pimpinan->judul == "DEKAN") selected @endif value="DEKAN">DEKAN</option>
-                                                    <option @if($pimpinan->judul == "WAKIL DEKAN") selected @endif  value="WAKIL DEKAN">WAKIL DEKAN</option>
-                                                    <option @if($pimpinan->judul == "KAPRODI INFORMATIKA") selected @endif  value="KAPRODI INFORMATIKA">KAPRODI INFORMATIKA</option>
-                                                    <option @if($pimpinan->judul == "KAPRODI SISTEM INFORMASI") selected @endif  value="KAPRODI SISTEM INFORMASI">KAPRODI SISTEM INFORMASI</option>
-                                                    <option @if($pimpinan->judul == "KAPRODI TEKNIK INDUSTRI") selected @endif  value="KAPRODI TEKNIK INDUSTRI">KAPRODI TEKNIK INDUSTRI</option>
+                                                    <option @if($pimpinan->title == "DEKAN") selected @endif value="DEKAN">DEKAN</option>
+                                                    <option @if($pimpinan->title == "WAKIL DEKAN") selected @endif  value="WAKIL DEKAN">WAKIL DEKAN</option>
+                                                    <option @if($pimpinan->title == "KAPRODI INFORMATIKA") selected @endif  value="KAPRODI INFORMATIKA">KAPRODI INFORMATIKA</option>
+                                                    <option @if($pimpinan->title == "KAPRODI SISTEM INFORMASI") selected @endif  value="KAPRODI SISTEM INFORMASI">KAPRODI SISTEM INFORMASI</option>
+                                                    <option @if($pimpinan->title == "KAPRODI TEKNIK INDUSTRI") selected @endif  value="KAPRODI TEKNIK INDUSTRI">KAPRODI TEKNIK INDUSTRI</option>
                                                 </select>
                                                 @error('title')
                                                     <small class="text-danger">{{ $message }}</small>
