@@ -45,9 +45,9 @@
                                 </li> --}}
                                 <li id="menu-item-5440"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5440">
-                                    <a title="Contact" href="../contact/index.html"
-                                        class="hvr-underline-from-left1" data-scroll
-                                        data-options="easing: easeOutQuart" onClick="return true">FST &#8211; UNIBA MADURA</a>
+                                    <a title="Contact" href="../contact/index.html" class="hvr-underline-from-left1"
+                                        data-scroll data-options="easing: easeOutQuart" onClick="return true">FST
+                                        &#8211; UNIBA MADURA</a>
                                 </li>
                             </ul>
                         </div>
@@ -88,25 +88,21 @@
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
                                         <a title="Academics" href="#" data-toggle="dropdown1"
                                             class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                            data-options="easing: easeOutQuart"
-                                            onClick="return true">Profil</a>
+                                            data-options="easing: easeOutQuart" onClick="return true">Profil</a>
                                         <ul role="menu" class="submenu">
                                             <li id="menu-item-2099"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                <a title="College Overview"
-                                                    href="{{ route('guest.sejarah') }}"
+                                                <a title="College Overview" href="{{ route('guest.sejarah') }}"
                                                     onClick="return true">Sejarah Fakultas</a>
                                             </li>
                                             <li id="menu-item-4124"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4124">
-                                                <a title="College Programs"
-                                                    href="{{ route('guest.visi-misi') }}"
+                                                <a title="College Programs" href="{{ route('guest.visi-misi') }}"
                                                     onClick="return true">Visi, Misi, dan Tujuan Fakultas</a>
                                             </li>
                                             <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
-                                                <a title="College Programs Details"
-                                                    href="{{ route('guest.pimpinan') }}"
+                                                <a title="College Programs Details" href="{{ route('guest.pimpinan') }}"
                                                     onClick="return true">Profil Pimpinan Fakultas</a>
                                             </li>
                                             <li id="menu-item-4126"
@@ -114,6 +110,21 @@
                                                 <a title="College Programs Details"
                                                     href="{{ route('guest.staff-dosen-fst') }}"
                                                     onClick="return true">Profil Dosen FST</a>
+                                            </li>
+                                            <li id="menu-item-1593"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
+                                                <a title="Blog Grid View" href="../blog-grid-view-08/index.html"
+                                                    onClick="return true">Fasilitas FST</a>
+                                            </li>
+                                            <li id="menu-item-1593"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
+                                                <a title="Blog Grid View" href="../blog-grid-view-08/index.html"
+                                                    onClick="return true">Akreditasi FST</a>
+                                            </li>
+                                            <li id="menu-item-1593"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
+                                                <a title="Blog Grid View" href="../blog-grid-view-08/index.html"
+                                                    onClick="return true">Rencana Strategis</a>
                                             </li>
                                             {{-- <li id="menu-item-4125"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4125">
@@ -139,46 +150,50 @@
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
                                         <a title="Academics" href="#" data-toggle="dropdown1"
                                             class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                            data-options="easing: easeOutQuart"
-                                            onClick="return true">Akademik</a>
+                                            data-options="easing: easeOutQuart" onClick="return true">Akademik</a>
                                         <ul role="menu" class="submenu">
                                             <li id="menu-item-2099"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                 <a title="College Overview"
-                                                    href="{{route('guest.panduan-pendidikan-fst')}}"
+                                                    href="{{ route('guest.panduan-pendidikan-fst') }}"
+                                                    onClick="return true">Buku Pedoman Skripsi</a>
+                                            </li>
+                                            <li id="menu-item-2099"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                <a title="College Overview"
+                                                    href="{{ route('guest.panduan-pendidikan-fst') }}"
                                                     onClick="return true">Panduan Pendidikan FST</a>
                                             </li>
                                             <li id="menu-item-2089"
                                                 class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
                                                 <a title="Academics" href="#" data-toggle="dropdown1"
                                                     class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                                    data-options="easing: easeOutQuart"
-                                                    onClick="return true">Program Studi</a>
+                                                    data-options="easing: easeOutQuart" onClick="return true">Program
+                                                    Studi</a>
                                                 <ul role="menu" class="submenu">
                                                     <li id="menu-item-2099"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                         <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Sistem Informasi</a>
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Sistem Informasi</a>
                                                     </li>
                                                     <li id="menu-item-2099"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                         <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Informatika</a>
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Informatika</a>
                                                     </li>
                                                     <li id="menu-item-2099"
                                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
                                                         <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">Teknik Industri</a>
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Teknik Industri</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li id="menu-item-2099"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                <a title="College Overview"
-                                                    href="../college-overview/index.html"
+                                                <a title="College Overview" href="../college-overview/index.html"
                                                     onClick="return true">Kalender Akademik</a>
                                             </li>
                                             <li id="menu-item-2089"
@@ -188,19 +203,66 @@
                                                     data-options="easing: easeOutQuart"
                                                     onClick="return true">Kemahasiswaan</a>
                                                 <ul role="menu" class="submenu">
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">BEM FST UNIBA Madura</a>
+                                                    <li id="menu-item-2089"
+                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
+                                                        <a title="Academics" href="#" data-toggle="dropdown1"
+                                                            class="hvr-underline-from-left1" aria-expanded="false"
+                                                            data-scroll data-options="easing: easeOutQuart"
+                                                            onClick="return true">Info Kemahasiswaan</a>
+                                                        <ul role="menu" class="submenu">
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">Beasiswa</a>
+                                                            </li>
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">Prestasi Mahasiswa</a>
+                                                            </li>
+                                                        </ul>
                                                     </li>
-                                                    <li id="menu-item-2099"
-                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
-                                                        <a title="College Overview"
-                                                        href="../college-overview/index.html"
-                                                        onClick="return true">BLM FST UNIBA Madura</a>
+                                                    <li id="menu-item-2089"
+                                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
+                                                        <a title="Academics" href="#" data-toggle="dropdown1"
+                                                            class="hvr-underline-from-left1" aria-expanded="false"
+                                                            data-scroll data-options="easing: easeOutQuart"
+                                                            onClick="return true">Ormawa</a>
+                                                        <ul role="menu" class="submenu">
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">BEM FST</a>
+                                                            </li>
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">HIMA Informatika</a>
+                                                            </li>
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">HIMA Sistem Informasi</a>
+                                                            </li>
+                                                            <li id="menu-item-2099"
+                                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                                <a title="College Overview"
+                                                                    href="../college-overview/index.html"
+                                                                    onClick="return true">HIMA Teknik Industri</a>
+                                                            </li>
+                                                        </ul>
                                                     </li>
                                                 </ul>
+                                                <li id="menu-item-2099"
+                                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                    <a title="College Overview" href="../college-overview/index.html"
+                                                        onClick="return true">Yudisium & Wisuda</a>
+                                                </li>
                                             </li>
                                         </ul>
                                     </li>
@@ -208,8 +270,7 @@
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1596">
                                         <a title="Contact" href="../contact-08/index.html"
                                             class="hvr-underline-from-left1" data-scroll
-                                            data-options="easing: easeOutQuart"
-                                            onClick="return true">Penelitian</a>
+                                            data-options="easing: easeOutQuart" onClick="return true">Pendaftaran</a>
                                     </li>
                                     <li id="menu-item-1605"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1605 dropdown">
@@ -220,35 +281,18 @@
                                             <li id="menu-item-1593"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
                                                 <a title="Blog Grid View" href="../blog-grid-view-08/index.html"
-                                                    onClick="return true">Terkini</a>
-                                            </li>
-                                            <li id="menu-item-1594"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1594">
-                                                <a title="Blog List View" href="../blog-list-view-08/index.html"
-                                                    onClick="return true">Eurika!</a>
+                                                    onClick="return true">Informasi</a>
                                             </li>
                                             <li id="menu-item-1591"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1591">
                                                 <a title="Blog Large View" href="../blog-large-view/index.html"
+                                                    onClick="return true">Pengumuman</a>
+                                            </li>
+                                            <li id="menu-item-1606"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1606">
+                                                <a title="Blog Details"
+                                                    href="../2022/06/27/dean-of-humanities-university-college-appoints/index.html"
                                                     onClick="return true">Agenda</a>
-                                            </li>
-                                            <li id="menu-item-1606"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1606">
-                                                <a title="Blog Details"
-                                                    href="../2022/06/27/dean-of-humanities-university-college-appoints/index.html"
-                                                    onClick="return true">Zona Integritas</a>
-                                            </li>
-                                            <li id="menu-item-1606"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1606">
-                                                <a title="Blog Details"
-                                                    href="../2022/06/27/dean-of-humanities-university-college-appoints/index.html"
-                                                    onClick="return true">Laporan</a>
-                                            </li>
-                                            <li id="menu-item-1606"
-                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1606">
-                                                <a title="Blog Details"
-                                                    href="../2022/06/27/dean-of-humanities-university-college-appoints/index.html"
-                                                    onClick="return true">Hasil Survei Kepuasan</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -256,17 +300,86 @@
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1605 dropdown">
                                         <a title="Blog" href="#" data-toggle="dropdown1"
                                             class="hvr-underline-from-left1" aria-expanded="false" data-scroll
-                                            data-options="easing: easeOutQuart" onClick="return true">Lainnya</a>
+                                            data-options="easing: easeOutQuart" onClick="return true">Alumni</a>
                                         <ul role="menu" class="submenu">
-                                            <li id="menu-item-1593"
-                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
-                                                <a title="Blog Grid View" href="../blog-grid-view-08/index.html"
-                                                    onClick="return true">Fasilitas FST</a>
+
+                                            <li id="menu-item-1594"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1594">
+                                                <a title="Blog List View" href="../blog-list-view-08/index.html"
+                                                    onClick="return true">Tentang Alumni FST</a>
                                             </li>
                                             <li id="menu-item-1594"
                                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1594">
                                                 <a title="Blog List View" href="../blog-list-view-08/index.html"
-                                                    onClick="return true">Daftar Staff Pengajar</a>
+                                                    onClick="return true">Ikatan Alumni FST</a>
+                                            </li>
+                                            <li id="menu-item-1594"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1594">
+                                                <a title="Blog List View" href="../blog-list-view-08/index.html"
+                                                    onClick="return true">Tracer Study</a>
+                                            </li>
+                                            <li id="menu-item-1594"
+                                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1594">
+                                                <a title="Blog List View" href="../blog-list-view-08/index.html"
+                                                    onClick="return true">Peluang Kerja</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li id="menu-item-1605"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1605 dropdown">
+                                        <a title="Blog" href="#" data-toggle="dropdown1"
+                                            class="hvr-underline-from-left1" aria-expanded="false" data-scroll
+                                            data-options="easing: easeOutQuart" onClick="return true">Informasi
+                                            Publik</a>
+                                        <ul role="menu" class="submenu">
+
+                                            <li id="menu-item-2089"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
+                                                <a title="Academics" href="#" data-toggle="dropdown1"
+                                                    class="hvr-underline-from-left1" aria-expanded="false" data-scroll
+                                                    data-options="easing: easeOutQuart" onClick="return true">Zona
+                                                    Integritas</a>
+                                                <ul role="menu" class="submenu">
+                                                    <li id="menu-item-2099"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                        <a title="College Overview"
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Pakta Integritas</a>
+                                                    </li>
+                                                    <li id="menu-item-2099"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                        <a title="College Overview"
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Aturan Gratifikasi</a>
+                                                    </li>
+                                                    <li id="menu-item-2099"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                        <a title="College Overview"
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">Dokumen Zona Integritas</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="menu-item-2089"
+                                                class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2089 dropdown">
+                                                <a title="Academics" href="#" data-toggle="dropdown1"
+                                                    class="hvr-underline-from-left1" aria-expanded="false" data-scroll
+                                                    data-options="easing: easeOutQuart" onClick="return true">Download
+                                                    Document</a>
+                                                <ul role="menu" class="submenu">
+                                                    <li id="menu-item-2099"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                        <a title="College Overview"
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">UNIBA Madura Expo</a>
+                                                    </li>
+                                                    <li id="menu-item-2099"
+                                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2099">
+                                                        <a title="College Overview"
+                                                            href="../college-overview/index.html"
+                                                            onClick="return true">SOP</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
@@ -308,7 +421,8 @@
             <div class="outer-box">
                 <div class="header-bottom-style9-left">
                     <div class="logo-box-style9">
-                        <a href="../index.html" title="UNIBA Madura"><img src="{{ asset('admin/images/logo-text.png') }}" alt="logo" style="" /></a>
+                        <a href="../index.html" title="UNIBA Madura"><img
+                                src="{{ asset('admin/images/logo-text.png') }}" alt="logo" style="" /></a>
                     </div>
                 </div>
                 <div class="header-bottom-style9-middle">
@@ -319,7 +433,8 @@
                                     <span class="flaticon-map"></span>
                                 </div>
                                 <div class="text">
-                                    <p>Jl. Raya Lenteng, Aredake, Batuan, Kec. Batuan, <br> Kabupaten Sumenep, Jawa Timur 69451</p>
+                                    <p>Jl. Raya Lenteng, Aredake, Batuan, Kec. Batuan, <br> Kabupaten Sumenep, Jawa
+                                        Timur 69451</p>
                                 </div>
                             </li>
                             <li>
@@ -355,7 +470,8 @@
                 <!--Logo-->
                 <div class="logo float-left">
                     <div class="img-responsive">
-                        <a href="../index.html" title="UNIBA Madura"><img src="{{ asset('admin/images/logo.png') }}" alt="logo" style="" /></a>
+                        <a href="../index.html" title="UNIBA Madura"><img src="{{ asset('admin/images/logo.png') }}"
+                                alt="logo" style="" /></a>
                     </div>
                 </div>
                 <!--Right Col-->
