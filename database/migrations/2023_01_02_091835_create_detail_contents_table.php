@@ -17,7 +17,6 @@ class CreateDetailContentsTable extends Migration
             $table->id();
             $table->string('content_id');
             $table->string('title');
-            $table->string('image_content');
             $table->string('content');
             $table->timestamps();
         });

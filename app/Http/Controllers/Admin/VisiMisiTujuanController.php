@@ -236,10 +236,8 @@ class VisiMisiTujuanController extends Controller
     public function destroy($visi_misi_tujuan_fst)
     {
         $fst_vmt = ContentProfile::Find($visi_misi_tujuan_fst);
-        $path = '/images/visi-misi-fakultas/';
-
-        if (File::exists("/images/visi-misi-fakultas/".$fst_vmt->image_content)) {
-            File::delete("/images/visi-misi-fakultas/".$fst_vmt->image_content);
+        if (File::exists("Images/visi-misi-fakultas/".$fst_vmt->image_content)) {
+            File::delete("Images/visi-misi-fakultas/".$fst_vmt->image_content);
         }
         $fst_vmt->delete();
 

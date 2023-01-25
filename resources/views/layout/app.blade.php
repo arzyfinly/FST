@@ -28,6 +28,10 @@
     <link href="{{ asset('assets/css/ruang-admin.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/toastr.min.css') }}" rel="stylesheet">
+
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <style>
         .pdfobject-container {
             height: 500px;
@@ -37,9 +41,11 @@
             border: 1px solid #666;
         }
     </style>
+
 </head>
 
 <body id="page-top">
+    @include('sweetalert::alert')
     <div id="wrapper">
         <!-- Sidebar -->
         @include('layout.sidebar')
@@ -101,6 +107,8 @@
     <script src="{{ asset('assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/clock-picker/clockpicker.js') }}"></script>
+            <!-- Main Quill library -->
+    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
         $(document).ready(function() {
 

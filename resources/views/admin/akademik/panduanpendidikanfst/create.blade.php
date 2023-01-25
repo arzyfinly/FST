@@ -14,27 +14,6 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3 border-right">
-
-                                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                <label class="labels mt-3"><strong>Gambar Konten</strong></label> <small class="text-warning">*Tidak Wajib di Isi</small>
-                                                <input type="file" name="image_content" hidden
-                                                    class="file2 @error('image_content') is-invalid @enderror"
-                                                    id="file2" accept="image/*" onchange="loadFile2(event)">
-                                                <div class="col-sm">
-                                                    <div id="msg"></div>
-                                                    <div class="input-group my-3 text-center">
-                                                        <img id="output2" class="img-thumbnail" />
-                                                    </div>
-                                                </div>
-                                                @error('image_content')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                                <button type="button" id="browse2"
-                                                    class="browse2 btn btn-primary ">Pilih Gambar</button>
-                                            </div>
-                                        </div>
-
                                         <div class="col border-right">
                                             <div class="p-3 py-5">
                                                 <div class="d-flex justify-content-between align-items-center mb-3">

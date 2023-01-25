@@ -67,7 +67,7 @@
                                                                     </div>
                                                                     <div class="btns-box">
                                                                         <a class="btn-one btn-one--style2"
-                                                                            href="../college-admissions/index.html">
+                                                                            href="{{ route('guest.visi-misi') }}">
                                                                             <span class="txt">Visi, Misi & Tujuan</span>
                                                                         </a>
                                                                     </div>

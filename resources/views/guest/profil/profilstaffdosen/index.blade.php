@@ -27,7 +27,7 @@
 
         <section>
             <div class="container text-center mt-5">
-                @if($informatika->count() != '0')
+                @if($informatika->count() != null)
                 <div class="sec-title text-center">
                     <h2>INFORMATIKA</h2>
                 </div>
@@ -42,7 +42,7 @@
                     @endforeach
                 </div>
                 @endif
-                @if($sisinfor->count() != '0')
+                @if($sisinfor->count() != null)
                 <div class="sec-title text-center">
                     <h2>SISTEM INFORMASI</h2>
                 </div>
@@ -57,7 +57,7 @@
                     @endforeach
                 </div>
                 @endif
-                @if($tekindustri->count() != '0')
+                @if($tekindustri->count() != null)
                 <div class="sec-title text-center">
                     <h2>TEKNIK INDUSTRI</h2>
                 </div>

@@ -76,20 +76,37 @@ class SejarahController extends Controller
         $file = $request->hasfile('image_header');
 
         $header_cache = Profil::where('category_profile_id', 1)->first();
+        // if ($request['image_header'] == null) {
+
+        //     $data['image_header'] = $header_cache['image_header'];
+        // }else{
+        //     if (File::exists('Images/sejarah-fakultas/'.$header_cache['image_header'])) {
+        //         File::delete('Images/sejarah-fakultas/'.$header_cache['image_header']);
+        //     }
+        // }
+
+        // if ($request->hasfile('image_header')) {
+        //     $file = $request->file('image_header');
+        //     $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
+        //     $file->move($path, $file_name);
+        //     $data['image_header'] = $file_name;
+        // }
+
         if ($request['image_header'] == null) {
 
             $data['image_header'] = $header_cache['image_header'];
-        }else{
+        }elseif(isset($header_cache)){
             if (File::exists('Images/sejarah-fakultas/'.$header_cache['image_header'])) {
                 File::delete('Images/sejarah-fakultas/'.$header_cache['image_header']);
             }
-        }
-
-        if ($request->hasfile('image_header')) {
-            $file = $request->file('image_header');
-            $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $file_name);
-            $data['image_header'] = $file_name;
+        }else{
+            if ($request->hasfile('image_header')) {
+                $file = $request->file('image_header');
+                $file_name = time() . str_replace(" ", "", $file->getClientOriginalName());
+                $file->move($path, $file_name);
+                $data['image_header'] = $file_name;
+                // dd($data);
+            }
         }
         Profil::updateOrCreate(
          [
@@ -231,10 +248,8 @@ class SejarahController extends Controller
     public function destroy($sejarah_fst)
     {
         $fst_sejarah = ContentProfile::Find($sejarah_fst);
-        $path = '/images/sejarah-fakultas/';
-
-        if (File::exists("/images/sejarah-fakultas/".$fst_sejarah->file)) {
-            File::delete("/images/sejarah-fakultas/".$fst_sejarah->file);
+        if (File::exists("Images/sejarah-fakultas/".$fst_sejarah->image_content)) {
+            File::delete("Images/sejarah-fakultas/".$fst_sejarah->image_content);
         }
         $fst_sejarah->delete();
 

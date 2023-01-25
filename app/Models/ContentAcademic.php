@@ -22,4 +22,9 @@ class ContentAcademic extends Model
     protected $nullable = [
         'image_content',
     ];
+
+    public function akademik()
+    {
+        return $this->belongsTo(Akademik::class);
+    }
 }

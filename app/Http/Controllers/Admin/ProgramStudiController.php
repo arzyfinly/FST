@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use DataTables;
 use Str;
 use File;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProgramStudiController extends Controller
 {
@@ -180,85 +181,61 @@ class ProgramStudiController extends Controller
     {
         $contents = DetailContent::where('content_id', $program_studi_fst)->get();
 
-        return view('admin.akademik.programstudi.content', compact('contents'));
+        return view('admin.akademik.programstudi.content', compact('contents','program_studi_fst'));
     }
 
-    public function detailCreate(Request $request)
+    public function detailStore(Request $request, $id)
     {
         $validated = $request->validate([
             'title'                 => 'required',
-            'description'           => 'required|max:150',
             'content'               => 'required',
-            'image_content'         => 'nullable',
-            'date'                  => 'required',
-            'publish'               => 'nullable',
         ]);
 
         $data = $request->all();
-        $path = 'Images/program-studi-fakultas/';
-        $path_file = 'files/akademik/';
-
-        if ($request->hasfile('image_content')) {
-            $file = $request->file('image_content');
-            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $nama_file);
-            $data['image_content'] = $nama_file;
-        }
-
-        if ($request->hasfile('content')) {
-            $file = $request->file('content');
-            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path_file, $nama_file);
-            $data['content'] = $nama_file;
-        }
-
-        // dd($data);
-        $akademik = Akademik::where('category_academic_id', 2)->first();
-        $content = ContentAcademic::where('akademik_id', $akademik->id)->where('title', $data['title'])->where('publish', '1')->get()->count();
-        if($akademik){
-            if($content != 0){
+        $content = DetailContent::where('content_id', $id)->where('title', $data['title'])->get()->count();
+            if($content == 0){
                 $content = [
-                        'akademik_id'           => $akademik->id,
+                        'content_id'            => $id,
                         'title'                 => $data['title'],
-                        'description'           => $data['description'],
                         'content'               => $data['content'],
-                        'image_content'         => $data['image_content'],
-                        'date'                  => $data['date'],
-                        'publish'               => '0',
                     ];
-
-                ContentAcademic::create($content);
-                return redirect()->route('program-studi-fst.index');
+                DetailContent::create($content);
             } else {
-                $content = [
-                'akademik_id'           => $akademik->id,
-                'title'                 => $data['title'],
-                'description'           => $data['description'],
-                'content'               => $data['content'],
-                'image_content'         => $data['image_content'],
-                'date'                  => $data['date'],
-                'publish'               => '1',
-                ];
-                ContentAcademic::create($content);
-                return redirect()->route('program-studi-fst.index');
+                Alert::toast('Judul '.$data['title'].' Sudah di ada !!','error');
+                return redirect()->route('program-studi-fst.show', $id);
             }
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => "Isi form Akademik terlebih dahulu !!"
-            ],409);
-        }
-        return redirect()->route('program-studi-fst.index');
+            Alert::toast($data['title'].' berhasil dibuat','success');
+            return redirect()->route('program-studi-fst.show', $id);
     }
 
+    public function detailEdit($program_studi_fst)
+    {
+        $program_studi_fst = DetailContent::Find($program_studi_fst);
+        return view('admin.akademik.programstudi.contentedit', compact('program_studi_fst'));
+    }
 
     public function edit($program_studi_fst)
     {
         $program_studi_fst = ContentAcademic::Find($program_studi_fst);
         return view('admin.akademik.programstudi.edit', compact('program_studi_fst'));
     }
+    public function detailUpdate(Request $request, $program_studi_fst)
+    {
+        $detailProdi = DetailContent::Find($program_studi_fst);
+        $validated = $request->validate([
+            'title'                 => 'required',
+            'content'               => 'required',
+        ]);
+        $detailProdi->update([
+            'content_id'            => $program_studi_fst,
+            'title'                 => $data['title'],
+            'content'               => $data['content'],
+        ]);
+        Alert::toast($data['title'].' berhasil diupdate','success');
+        return redirect()->route('program-studi-fst.index');
+    }
 
-    public function update(Request $request, $program_studi_fst)
+    public function Update(Request $request, $program_studi_fst)
     {
         $prodi = ContentAcademic::Find($program_studi_fst);
         $request->validate([
@@ -339,6 +316,16 @@ class ProgramStudiController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'data Prodi berhasil dihapus!'
+        ],200);
+    }
+    public function detailDestroy($program_studi_fst)
+    {
+        $fst_prodi = DetailContent::Find($program_studi_fst);
+        $fst_prodi->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'data content Prodi berhasil dihapus!'
         ],200);
     }
 }

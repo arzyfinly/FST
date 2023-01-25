@@ -12,17 +12,13 @@ class DetailContent extends Model
     protected $fillable = [
         'content_id',
         'title',
-        'image_content',
         'content',
     ];
 
-    protected $nullable = [
-        'image_content',
-    ];
     protected $with = ['contentAkademik'];
 
     public function contentAkademik()
     {
         return $this->belongsTo(ContentAcademic::class);
     }
-}
+} 

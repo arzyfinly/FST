@@ -39,10 +39,34 @@ class ProfilController extends Controller
     public function staffDosenFst()
     {
         $profil = Profil::where('category_profile_id', '4')->first();
-        $dosen = ContentProfile::where('profil_id', $profil->id)->where('publish', '1');
-        $informatika = $dosen->where('title', 'INFORMATIKA')->get();
-        $sisinfor = $dosen->where('title', 'SISTEM INFORMASI')->get();
-        $tekindustri = $dosen->where('title', 'TEKNIK INDUSTRI')->get();
-        return view('guest.profil.profilstaffdosen.index', compact('profil','dosen', 'informatika', 'sisinfor','tekindustri'));
+        $informatika = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'INFORMATIKA')->get();
+        $sisinfor = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'SISTEM INFORMASI')->get();
+        $tekindustri = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'TEKNIK INDUSTRI')->get();
+        return view('guest.profil.profilstaffdosen.index', compact('profil', 'informatika', 'sisinfor','tekindustri'));
+    }
+
+    public function rencanaStrategis()
+    {
+        // $profil = Profil::where('category_profile_id', '4')->first();
+        // $informatika = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'INFORMATIKA')->get();
+        // $sisinfor = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'SISTEM INFORMASI')->get();
+        // $tekindustri = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'TEKNIK INDUSTRI')->get();
+        return view('guest.profil.rencanastrategis.index');
+    }
+    public function fasilitas()
+    {
+        // $profil = Profil::where('category_profile_id', '4')->first();
+        // $informatika = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'INFORMATIKA')->get();
+        // $sisinfor = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'SISTEM INFORMASI')->get();
+        // $tekindustri = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'TEKNIK INDUSTRI')->get();
+        return view('guest.profil.fasilitasfst.index');
+    }
+    public function akreditasi()
+    {
+        // $profil = Profil::where('category_profile_id', '4')->first();
+        // $informatika = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'INFORMATIKA')->get();
+        // $sisinfor = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'SISTEM INFORMASI')->get();
+        // $tekindustri = ContentProfile::where('profil_id', $profil->id)->where('publish', '1')->where('title', 'TEKNIK INDUSTRI')->get();
+        return view('guest.profil.akreditasifst.index');
     }
 }

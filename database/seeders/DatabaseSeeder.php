@@ -16,10 +16,16 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
         $this->call(CategoryProfileSeeder::class);
-        $this->call(ProfileSeeder::class);
-        $this->call(ContentProfilSeeder::class);
+        // $this->call(ProfileSeeder::class);
+        // $this->call(ContentProfilSeeder::class);
         $this->call(CategoryAcademicSeeder::class);
-        $this->call(AcademicSeeder::class);
-        $this->call(ContentAcademicSeeder::class);
+        // $this->call(AcademicSeeder::class);
+        // $this->call(ContentAcademicSeeder::class);
+        $this->call(CategoryKemahasiswaanSeeder::class);
+        // $this->call(KemahasiswaanSeeder::class);
+        // $this->call(ContentKemahasiswaanSeeder::class);
+        $this->call(CategoryBeritaSeeder::class);
+        // $this->call(BeritaSeeder::class);
+        // $this->call(ContentBeritaSeeder::class);
     }
 }

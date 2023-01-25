@@ -43,27 +43,6 @@
                         @csrf
                                 <div class="form-group">
                                     <div class="row">
-                                        <div class="col-md-3 border-right">
-
-                                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                                <label class="labels mt-3"><strong>Gambar Konten</strong></label> <small class="text-warning">*Tidak Wajib di Isi</small>
-                                                <input type="file" name="image_content" hidden
-                                                    class="file2 @error('image_content') is-invalid @enderror"
-                                                    id="file2" accept="image/*" onchange="loadFile2(event)">
-                                                <div class="col-sm">
-                                                    <div id="msg"></div>
-                                                    <div class="input-group my-3 text-center">
-                                                        <img id="output2" @isset($panduan->image_content) src="{{ asset('images/panduan-pendidikan-fakultas/'.$panduan->image_content) }}" @endisset class="img-thumbnail" />
-                                                    </div>
-                                                </div>
-                                                @error('image_content')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
-                                                <button type="button" id="browse2"
-                                                    class="browse2 btn btn-primary ">Pilih Gambar</button>
-                                            </div>
-                                        </div>
-
                                         <div class="col border-right">
                                             <div class="p-3 py-5">
                                                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -84,7 +63,7 @@
                                                     {{-- </div> --}}
                                                     <div class="col-md-12 mt-2">
                                                         <label class="labels">Upload PDF</label>
-                                                        <input type="file" name="content" class="form-control" placeholder="ex: isi file">
+                                                        <input type="file" value="" name="content" class="form-control" placeholder="ex: isi file">
                                                         <small class="text-danger">* jika file di isi, otomatis file sebelumnya akan tertimpa</small>
                                                         @error('content')
                                                             <small class="text-danger">{{ $message }}</small>
@@ -113,32 +92,4 @@
         </div>
     </div>
     <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
-    <script>
-        $(document).on("click", "#browse1", function() {
-            var file1 = $(this).parents().find(".file1");
-            file1.trigger("click");
-        });
-
-        var loadFile1 = function(event) {
-            var output1 = document.getElementById('output1');
-            output1.src = URL.createObjectURL(event.target.files[0]);
-            output1.onload = function() {
-                URL.revokeObjectURL(output1.src) // free memory
-            }
-        };
-
-
-        $(document).on("click", "#browse2", function() {
-            var file2 = $(this).parents().find(".file2");
-            file2.trigger("click");
-        });
-
-        var loadFile2 = function(event) {
-            var output2 = document.getElementById('output2');
-            output2.src = URL.createObjectURL(event.target.files[0]);
-            output2.onload = function() {
-                URL.revokeObjectURL(output2.src) // free memory
-            }
-        };
-    </script>
 @endsection

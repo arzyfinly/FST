@@ -6,7 +6,7 @@
         url = url.replace(':id', id);
         Swal.fire({
             title: 'Kamu yakin ?',
-            text: "ingin menghapus data sejarah ini ?",
+            text: "ingin menghapus data program studi ini ?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',

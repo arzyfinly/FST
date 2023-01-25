@@ -116,13 +116,6 @@ class PanduanPendidikanController extends Controller
         $path = 'Images/panduan-pendidikan-fakultas';
         $path_file = 'files/akademik/';
 
-        if ($request->hasfile('image_content')) {
-            $file = $request->file('image_content');
-            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $nama_file);
-            $data['image_content'] = $nama_file;
-        }
-
         if ($request->hasfile('content')) {
             $file = $request->file('content');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
@@ -139,11 +132,10 @@ class PanduanPendidikanController extends Controller
                         'title'                 => $data['title'],
                         'description'           => $data['description'],
                         'content'               => $data['content'],
-                        'image_content'         => $data['image_content'],
+                        'image_content'         => '-',
                         'date'                  => $data['date'],
                         'publish'               => '1',
                     ];
-
                 ContentAcademic::create($content);
                 return redirect()->route('panduan-pendidikan-fst.index');
         } else {
@@ -179,18 +171,13 @@ class PanduanPendidikanController extends Controller
         ]);
         $path = 'Images/panduan-pendidikan-fakultas/';
         $path_file = 'files/akademik/';
-
         if ($request['publish'] == null) {
             $request['publish'] = 0;
         }
 
-        if($request['image_content'] == null) {
-            $request['image_content'] = $panduan['image_content'];
-
-        }
         $data = $request->all();
-        if ($request['content'] == null) {
-            $request['content'] = $panduan['content'];
+        if (!isset($request['content'])) {
+            $data['content'] = $panduan['content'];
         } elseif ($request->hasfile('content')) {
             $file = $request->file('content');
             $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
@@ -199,16 +186,8 @@ class PanduanPendidikanController extends Controller
                 File::delete('files/akademik/'.$panduan['content']);
             }
             $data['content'] = $nama_file;
-        }
+        } else {
 
-        if ($request->hasfile('image_content')) {
-            $file = $request->file('image_content');
-            $nama_file = time() . str_replace(" ", "", $file->getClientOriginalName());
-            $file->move($path, $nama_file);
-            if (File::exists('Images/panduan-pendidikan-fakultas/'.$panduan['image_content'])) {
-                File::delete('Images/panduan-pendidikan-fakultas/'.$panduan['image_content']);
-            }
-            $data['image_content'] = $nama_file;
         }
 
         if ($data['publish'] == 1) {
@@ -221,7 +200,7 @@ class PanduanPendidikanController extends Controller
             'title'                 => $data['title'],
             'description'           => $data['description'],
             'content'               => $data['content'],
-            'image_content'         => $data['image_content'],
+            'image_content'         => '-',
             'date'                  => $data['date'],
             'publish'               => '1',
         ]);

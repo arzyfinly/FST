@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="{{ asset('admin/images/logo.png') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('admin/images/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/default/logo-fst.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/default/logo-fst.png') }}" type="image/x-icon">
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- For IE -->
@@ -17,204 +17,6 @@
     <meta name='robots' content='max-image-preview:large' />
     <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
     <link rel='dns-prefetch' href='http://s.w.org/' />
-    <link rel="alternate" type="application/rss+xml" title="Educamb &raquo; Feed" href="../feed/index.html" />
-    <link rel="alternate" type="application/rss+xml" title="Educamb &raquo; Comments Feed" href="../comments/feed/index.html" />
-    <link rel="alternate" type="text/calendar" title="Educamb &raquo; iCal Feed" href="../events/indexedf3.html?ical=1" />
-    <script type="text/javascript">
-        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/fastwpdemo.com\/newwp\/educamincludes\/jemoji-release.min.js?ver=6.0.3" } };
-        /*! This file is auto-generated */
-        !function (e, a, t) { var n, r, o, i = a.createElement("canvas"), p = i.getContext && i.getContext("2d"); function s(e, t) { var a = String.fromCharCode, e = (p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, e), 0, 0), i.toDataURL()); return p.clearRect(0, 0, i.width, i.height), p.fillText(a.apply(this, t), 0, 0), e === i.toDataURL() } function c(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)t.supports[o[r]] = function (e) { if (!p || !p.fillText) return !1; switch (p.textBaseline = "top", p.font = "600 32px Arial", e) { case "flag": return s([127987, 65039, 8205, 9895, 65039], [127987, 65039, 8203, 9895, 65039]) ? !1 : !s([55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]) && !s([55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]); case "emoji": return !s([129777, 127995, 8205, 129778, 127999], [129777, 127995, 8203, 129778, 127999]) }return !1 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e.wpemoji))) }(window, document, window._wpemojiSettings);
-    </script>
-    <style type="text/css">
-        img.wp-smiley,
-        img.emoji {
-            display: inline !important;
-            border: none !important;
-            box-shadow: none !important;
-            height: 1em !important;
-            width: 1em !important;
-            margin: 0 0.07em !important;
-            vertical-align: -0.1em !important;
-            background: none !important;
-            padding: 0 !important;
-        }
-    </style>
-    <link rel='stylesheet' id='wp-block-library-css' href='{{ asset('includes/css/dist/block-library/style.min1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
-    <style id='wp-block-library-theme-inline-css' type='text/css'>
-        .wp-block-audio figcaption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .wp-block-audio figcaption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .wp-block-code {
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: Menlo, Consolas, monaco, monospace;
-            padding: .8em 1em
-        }
-
-        .wp-block-embed figcaption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .wp-block-embed figcaption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .blocks-gallery-caption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .blocks-gallery-caption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .wp-block-image figcaption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .wp-block-image figcaption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .wp-block-pullquote {
-            border-top: 4px solid;
-            border-bottom: 4px solid;
-            margin-bottom: 1.75em;
-            color: currentColor
-        }
-
-        .wp-block-pullquote__citation,
-        .wp-block-pullquote cite,
-        .wp-block-pullquote footer {
-            color: currentColor;
-            text-transform: uppercase;
-            font-size: .8125em;
-            font-style: normal
-        }
-
-        .wp-block-quote {
-            border-left: .25em solid;
-            margin: 0 0 1.75em;
-            padding-left: 1em
-        }
-
-        .wp-block-quote cite,
-        .wp-block-quote footer {
-            color: currentColor;
-            font-size: .8125em;
-            position: relative;
-            font-style: normal
-        }
-
-        .wp-block-quote.has-text-align-right {
-            border-left: none;
-            border-right: .25em solid;
-            padding-left: 0;
-            padding-right: 1em
-        }
-
-        .wp-block-quote.has-text-align-center {
-            border: none;
-            padding-left: 0
-        }
-
-        .wp-block-quote.is-large,
-        .wp-block-quote.is-style-large,
-        .wp-block-quote.is-style-plain {
-            border: none
-        }
-
-        .wp-block-search .wp-block-search__label {
-            font-weight: 700
-        }
-
-        :where(.wp-block-group.has-background) {
-            padding: 1.25em 2.375em
-        }
-
-        .wp-block-separator.has-css-opacity {
-            opacity: .4
-        }
-
-        .wp-block-separator {
-            border: none;
-            border-bottom: 2px solid;
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .wp-block-separator.has-alpha-channel-opacity {
-            opacity: 1
-        }
-
-        .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-            width: 100px
-        }
-
-        .wp-block-separator.has-background:not(.is-style-dots) {
-            border-bottom: none;
-            height: 1px
-        }
-
-        .wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots) {
-            height: 2px
-        }
-
-        .wp-block-table thead {
-            border-bottom: 3px solid
-        }
-
-        .wp-block-table tfoot {
-            border-top: 3px solid
-        }
-
-        .wp-block-table td,
-        .wp-block-table th {
-            padding: .5em;
-            border: 1px solid;
-            word-break: normal
-        }
-
-        .wp-block-table figcaption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .wp-block-table figcaption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .wp-block-video figcaption {
-            color: #555;
-            font-size: 13px;
-            text-align: center
-        }
-
-        .is-dark-theme .wp-block-video figcaption {
-            color: hsla(0, 0%, 100%, .65)
-        }
-
-        .wp-block-template-part.has-background {
-            padding: 1.25em 2.375em;
-            margin-top: 0;
-            margin-bottom: 0
-        }
-    </style>
-    <link rel='stylesheet' id='wc-blocks-vendors-style-css' href='{{ asset('content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-styled01d.css?ver=7.8.3') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='wc-blocks-style-css' href='{{ asset('content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-styled01d.css?ver=7.8.3') }}' type='text/css' media='all' />
     <style id='global-styles-inline-css' type='text/css'>
         body {
             --wp--preset--color--black: #000000;
@@ -471,35 +273,6 @@
         }
     </style>
     <link rel='stylesheet' id='contact-form-7-css' href='{{ asset('content/plugins/contact-form-7/includes/css/stylesd96d.css?ver=5.6.1') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='tutor-icon-css' href='{{ asset('content/plugins/tutor/assets/css/tutor-icon.minffdc.css?ver=2.0.9') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='tutor-css' href='{{ asset('content/plugins/tutor/assets/css/tutor.minffdc.css?ver=2.0.9') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='tutor-frontend-css' href='{{ asset('content/plugins/tutor/assets/css/tutor-front.minffdc.css?ver=2.0.9') }}' type='text/css' media='all' />
-    <style id='tutor-frontend-inline-css' type='text/css'>
-        .mce-notification.mce-notification-error {
-            display: none !important;
-        }
-
-        :root {
-            --tutor-color-primary: #d1143e;
-            --tutor-color-primary-rgb: 209, 20, 62;
-            --tutor-color-primary-hover: #17345a;
-            --tutor-color-primary-hover-rgb: 23, 52, 90;
-            --tutor-body-color: #777777;
-            --tutor-body-color-rgb: 119, 119, 119;
-            --tutor-border-color: #cdcfd5;
-            --tutor-border-color-rgb: 205, 207, 213;
-            --tutor-color-gray: #e3e5eb;
-            --tutor-color-gray-rgb: 227, 229, 235;
-        }
-    </style>
-    <link rel='stylesheet' id='woocommerce-layout-css' href='{{ asset('content/plugins/woocommerce/assets/css/woocommerce-layoutbdeb.css?ver=6.7.0') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='{{ asset('content/plugins/woocommerce/assets/css/woocommerce-smallscreenbdeb.css?ver=6.7.0') }}' type='text/css' media='only screen and (max-width: 768px)' />
-    <link rel='stylesheet' id='woocommerce-general-css' href='{{ asset('content/plugins/woocommerce/assets/css/woocommercebdeb.css?ver=6.7.0') }}' type='text/css' media='all' />
-    <style id='woocommerce-inline-inline-css' type='text/css'>
-        .woocommerce form .form-row .required {
-            visibility: visible;
-        }
-    </style>
     <link rel='stylesheet' id='animate-css' href='{{ asset('content/themes/educamb/assets/css/animate1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='aos-css' href='{{ asset('content/themes/educamb/assets/css/aos1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='bootstrap-css' href='{{ asset('content/themes/educamb/assets/css/bootstrap.min1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
@@ -518,7 +291,6 @@
     <link rel='stylesheet' id='swiper-css' href='{{ asset('content/themes/educamb/assets/css/swiper.min1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='slick-css' href='{{ asset('content/themes/educamb/assets/css/slick1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='jquery-ui-css' href='{{ asset('content/themes/educamb/assets/css/jquery-ui1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='vegas-css' href='{{ asset('content/themes/educamb/assets/css/vegas.min1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='header-section-css' href='{{ asset('content/themes/educamb/assets/css/module-css/header-section1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='banner-section-css' href='{{ asset('content/themes/educamb/assets/css/module-css/banner-section1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='about-section-css' href='{{ asset('content/themes/educamb/assets/css/module-css/about-section1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
@@ -539,40 +311,20 @@
     <link rel='stylesheet' id='color-8-css' href='{{ asset('content/themes/educamb/assets/css/color-81eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='educamb-custom-css' href='{{ asset('content/themes/educamb/assets/css/custom1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='educamb-responsive-css' href='{{ asset('content/themes/educamb/assets/css/responsive1eb7.css?ver=6.0.3') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='educamb-theme-fonts-css' href='https://fonts.googleapis.com/css?family=DM+Sans%3Awght%400%2C400%2C500%2C700%26display%3Dswap%7CFrank+Ruhl+Libre%3Awght%400%2C300%2C400%2C500%2C700%2C900%26display%3Dswap%7CAveria+Serif+Libre%3Awght%400%2C300%2C400%2C700%26display%3Dswap%7CInter%3Awght%400%2C400%2C500%2C600%2C700%2C800%2C900%26display%3Dswap&amp;subset=latin%2Clatin-ext') }}' type='text/css' media='all' />
+    <link rel='stylesheet' id='educamb-theme-fonts-css' href='https://fonts.googleapis.com/css?family=DM+Sans%3Awght%400%2C400%2C500%2C700%26display%3Dswap%7CFrank+Ruhl+Libre%3Awght%400%2C300%2C400%2C500%2C700%2C900%26display%3Dswap%7CAveria+Serif+Libre%3Awght%400%2C300%2C400%2C700%26display%3Dswap%7CInter%3Awght%400%2C400%2C500%2C600%2C700%2C800%2C900%26display%3Dswap&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-icons-css' href='{{ asset('content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min7816.css?ver=5.15.0') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-frontend-css' href='{{ asset('content/plugins/elementor/assets/css/frontend-lite.mina4f3.css?ver=3.6.8') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-post-6-css' href='{{ asset('content/uploads/elementor/css/post-6f55a.css?ver=1658994478') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-global-css' href='{{ asset('content/uploads/elementor/css/globalf55a.css?ver=1658994478') }}' type='text/css' media='all' />
-    <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.0.3') }}' type='text/css' media='all' />
-    <script type='text/javascript' id='jquery-core-js-extra'>
-        /* <![CDATA[ */
-        var educamb_data = { "ajaxurl": "https:\/\/fastwpdemo.com\/newwp\/educamadmin\/admin-ajax.php", "nonce": "b0a805c793" };
-        /* ]]> */
-    </script>
+    <link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=6.0.3' type='text/css' media='all' />
     <script type='text/javascript' src='{{ asset('includes/js/jquery/jquery.minaf6c.js?ver=3.6.0') }}' id='jquery-core-js'></script>
     <script type='text/javascript' src='{{ asset('includes/js/jquery/jquery-migrate.mind617.js?ver=3.3.2') }}' id='jquery-migrate-js'></script>
     <link rel="https://api.w.org/" href="{{ asset('json/index.html') }}" />
     <link rel="alternate" type="application/json" href="{{ asset('json/wp/v2/pages/439.json') }}" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{ asset('xmlrpc0db0.php?rsd') }}" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="{{ asset('includes/wlwmanifest.xml') }}" />
-    <meta name="generator" content="WordPress 6.0.3" />
-    <meta name="generator" content="TutorLMS 2.0.9" />
-    <meta name="generator" content="WooCommerce 6.7.0" />
-    <link rel="canonical" href="{{ asset('index.html') }}" />
-    <link rel='shortlink' href='{{ asset('indexfcc0.html?p=439') }}' />
     <link rel="alternate" type="application/json+oembed" href="{{ asset('json/oembed/1.0/embedf580.json?url=https%3A%2F%2Ffastwpdemo.com%2Fnewwp%2Feducamb%2Fcollege%2F') }}" />
     <link rel="alternate" type="text/xml+oembed" href="{{ asset('json/oembed/1.0/embedff73?url=https%3A%2F%2Ffastwpdemo.com%2Fnewwp%2Feducamb%2Fcollege%2F&amp;format=xml') }}" />
     <meta name="tec-api-version" content="v1">
-    <meta name="tec-api-origin" content="https://fastwpdemo.com/newwp/educamb">
-    <link rel="alternate" href="{{ asset('json/tribe/events/v1/index.html') }}" /> 
-    <noscript>
-        <style>
-            .woocommerce-product-gallery {
-                opacity: 1 !important;
-            }
-        </style>
-    </noscript>
+    <link rel="alternate" href="{{ asset('json/tribe/events/v1/index.html') }}" />
 </head>
 
 
@@ -585,8 +337,20 @@
                 <div id="handle-preloader" class="handle-preloader">
                     <div class="animation-preloader">
                         <div class="spinner">
-                            <img src="{{ asset('admin/images/logo-loading.png') }}" alt="">
+                            <img src="{{ asset('Images/default/logo-loading.png') }}" alt="">
                         </div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="S" class="letters-loading">
+                                S
+                            </span>
+                            <span data-text-preloader="T" class="letters-loading">
+                                T
+                            </span>
+                        </div>
+
                         <div class="txt-loading">
                             <span data-text-preloader="U" class="letters-loading">
                                 U
@@ -599,27 +363,6 @@
                             </span>
                             <span data-text-preloader="B" class="letters-loading">
                                 B
-                            </span>
-                            <span data-text-preloader="A" class="letters-loading">
-                                A
-                            </span>
-                        </div>
-                        
-                        <div class="txt-loading">
-                            <span data-text-preloader="M" class="letters-loading">
-                                M
-                            </span>
-                            <span data-text-preloader="A" class="letters-loading">
-                                A
-                            </span>
-                            <span data-text-preloader="D" class="letters-loading">
-                                D
-                            </span>
-                            <span data-text-preloader="U" class="letters-loading">
-                                U
-                            </span>
-                            <span data-text-preloader="R" class="letters-loading">
-                                R
                             </span>
                             <span data-text-preloader="A" class="letters-loading">
                                 A
@@ -685,10 +428,9 @@
         })();
     </script>
     <script type='text/javascript' src='{{ asset('includes/js/dist/vendor/regenerator-runtime.min3937.js?ver=0.13.9') }}' id='regenerator-runtime-js'></script>
-    <script type='text/javascript' src='{{ asset('includes/js/dist/vendpolyfill.min2c7c.js?ver=3.15.0') }}' id='wp-polyfill-js'></script>
     <script type='text/javascript' id='contact-form-7-js-extra'>
         /* <![CDATA[ */
-        var wpcf7 = { "api": { "root": "https:\/\/fastwpdemo.com\/newwp\/educamjson\/", "namespace": "contact-form-7\/v1" } }; 
+        var wpcf7 = { "api": { "root": "https:\/\/fastwpdemo.com\/newwp\/educamjson\/", "namespace": "contact-form-7\/v1" } };
         /* ]]> */
     </script>
     <script type='text/javascript' src='{{ asset('content/plugins/contact-form-7/includes/js/indexd96d.js?ver=5.6.1') }}' id='contact-form-7-js'></script>
@@ -702,7 +444,6 @@
         var _tutorobject = { "ajaxurl": "https:\/\/fastwpdemo.com\/newwp\/educamadmin\/admin-ajax.php", "home_url": "https:\/\/fastwpdemo.com\/newwp\/educamb", "site_title": "Educamb", "base_path": "\/newwp\/educamb\/", "tutor_url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/", "tutor_pro_url": null, "nonce_key": "_tutor_nonce", "_tutor_nonce": "a58c3e4f6e", "loading_icon_url": "https:\/\/fastwpdemo.com\/newwp\/educamadmin\/images\/wpspin_light.gif", "placeholder_img_src": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/images\/placeholder.svg", "enable_lesson_classic_editor": "", "tutor_frontend_dashboard_url": "https:\/\/fastwpdemo.com\/newwp\/educamb\/dashboard\/", "wp_date_format": "MMMM d, yyyy", "is_admin": "", "is_admin_bar_showing": "", "addons_data": [{ "name": "BuddyPress", "description": "Discuss about course and share your knowledge with your friends through BuddyPress", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/buddypress\/thumbnail.png" }, { "name": "Gradebook", "description": "Shows student progress from assignment and quiz", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/gradebook\/thumbnail.png" }, { "name": "Content Drip", "description": "Unlock lessons by schedule or when the student meets specific condition.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/content-drip\/thumbnail.png" }, { "name": "Enrolment", "description": "Take advanced control on enrolment. Enroll the student manually.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/enrollments\/thumbnail.png" }, { "name": "WooCommerce Subscriptions", "description": "Capture Residual Revenue with Recurring Payments.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/wc-subscriptions\/thumbnail.png" }, { "name": "Paid Memberships Pro", "description": "Maximize revenue by selling membership access to all of your courses.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/pmpro\/thumbnail.png" }, { "name": "Restrict Content Pro", "description": "Unlock Course depending on Restrict Content Pro Plugin Permission.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/restrict-content-pro\/thumbnail.png" }, { "name": "Tutor Assignments", "description": "Tutor assignments is a great way to assign tasks to students.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-assignments\/thumbnail.png" }, { "name": "Tutor Certificate", "description": "Students will be able to download a certificate after course completion.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-certificate\/thumbnail.png" }, { "name": "Tutor Course Attachments", "description": "Add unlimited attachments\/ private files to any Tutor course", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-course-attachments\/thumbnail.png" }, { "name": "Tutor Course Preview", "description": "Unlock some lessons for students before enrolment.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-course-preview\/thumbnail.png" }, { "name": "Tutor E-Mail", "description": "Send email on various tutor events", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-email\/thumbnail.png" }, { "name": "Tutor Multi Instructors", "description": "Start a course with multiple instructors by Tutor Multi Instructors", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-multi-instructors\/thumbnail.png" }, { "name": "Tutor Prerequisites", "description": "Specific course you must complete before you can enroll new course by Tutor Prerequisites", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-prerequisites\/thumbnail.png" }, { "name": "Tutor Report", "description": "Check your course performance through Tutor Report stats.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-report\/thumbnail.png" }, { "name": "Quiz Export\/Import", "description": "Save time by exporting\/importing quiz data with easy options.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/quiz-import-export\/thumbnail.png" }, { "name": "Tutor Zoom Integration", "description": "Connect Tutor LMS with Zoom to host live online classes. Students can attend live classes right from the lesson page.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-zoom\/thumbnail.png" }, { "name": "Google Classroom Integration", "description": "Helps connect Google Classrooms with Tutor LMS courses, allowing you to use features like Classroom streams and files directly from the Tutor LMS course.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/google-classroom\/thumbnail.png" }, { "name": "Calendar", "description": "Allow students to see everything in a calendar view in the front dashboard.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-calendar\/thumbnail.png" }, { "name": "Notifications", "description": "Get On Site and Push Notifications on specified tutor events.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-notifications\/thumbnail.png" }, { "name": "WPML Multilingual CMS", "description": "Create multilingual courses, lessons, dashboard and more for a global audience.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-wpml\/thumbnail.png" }], "current_user": { "data": {}, "ID": 0, "caps": [], "cap_key": null, "roles": [], "allcaps": [], "filter": null }, "content_change_event": "tutor_content_changed_event", "is_tutor_course_edit": "", "assignment_max_file_allowed": "0", "current_page": "", "quiz_answer_display_time": "2000" };
         /* ]]> */
     </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/tutor/assets/js/tutor.minffdc.js?ver=2.0.9') }}' id='tutor-script-js'></script>
     <script type='text/javascript' id='quicktags-js-extra'>
         /* <![CDATA[ */
         var quicktagsL10n = { "closeAllOpenTags": "Close all open tags", "closeTags": "close tags", "enterURL": "Enter the URL", "enterImageURL": "Enter the URL of the image", "enterImageDescription": "Enter a description of the image", "textdirection": "text direction", "toggleTextdirection": "Toggle Editor Text Direction", "dfw": "Distraction-free writing mode", "strong": "Bold", "strongClose": "Close bold tag", "em": "Italic", "emClose": "Close italic tag", "link": "Insert link", "blockquote": "Blockquote", "blockquoteClose": "Close blockquote tag", "del": "Deleted text (strikethrough)", "delClose": "Close deleted text tag", "ins": "Inserted text", "insClose": "Close inserted text tag", "image": "Insert image", "ul": "Bulleted list", "ulClose": "Close bulleted list tag", "ol": "Numbered list", "olClose": "Close numbered list tag", "li": "List item", "liClose": "Close list item tag", "code": "Code", "codeClose": "Close code tag", "more": "Insert Read More tag" };
@@ -713,40 +454,12 @@
     <script type='text/javascript' src='{{ asset('includes/js/jquery/ui/mouse.min0028.js?ver=1.13.1') }}' id='jquery-ui-mouse-js'></script>
     <script type='text/javascript' src='{{ asset('includes/js/jquery/ui/sortable.min0028.js?ver=1.13.1') }}' id='jquery-ui-sortable-js'></script>
     <script type='text/javascript' src='{{ asset('includes/js/jquery/jquery.ui.touch-punchc682.js?ver=0.2.2') }}' id='jquery-touch-punch-js'></script>
-    <script type='text/javascript' src='{{ asset('content/plugins/tutor/assets/packages/SocialShare/SocialShare.minffdc.js?ver=2.0.9') }}' id='tutor-social-share-js'></script>
-    <script type='text/javascript' id='tutor-frontend-js-extra'>
-        /* <![CDATA[ */
-        var _tutorobject = { "ajaxurl": "https:\/\/fastwpdemo.com\/newwp\/educamadmin\/admin-ajax.php", "home_url": "https:\/\/fastwpdemo.com\/newwp\/educamb", "site_title": "Educamb", "base_path": "\/newwp\/educamb\/", "tutor_url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/", "tutor_pro_url": null, "nonce_key": "_tutor_nonce", "_tutor_nonce": "a58c3e4f6e", "loading_icon_url": "https:\/\/fastwpdemo.com\/newwp\/educamadmin\/images\/wpspin_light.gif", "placeholder_img_src": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/images\/placeholder.svg", "enable_lesson_classic_editor": "", "tutor_frontend_dashboard_url": "https:\/\/fastwpdemo.com\/newwp\/educamb\/dashboard\/", "wp_date_format": "MMMM d, yyyy", "is_admin": "", "is_admin_bar_showing": "", "addons_data": [{ "name": "BuddyPress", "description": "Discuss about course and share your knowledge with your friends through BuddyPress", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/buddypress\/thumbnail.png" }, { "name": "Gradebook", "description": "Shows student progress from assignment and quiz", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/gradebook\/thumbnail.png" }, { "name": "Content Drip", "description": "Unlock lessons by schedule or when the student meets specific condition.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/content-drip\/thumbnail.png" }, { "name": "Enrolment", "description": "Take advanced control on enrolment. Enroll the student manually.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/enrollments\/thumbnail.png" }, { "name": "WooCommerce Subscriptions", "description": "Capture Residual Revenue with Recurring Payments.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/wc-subscriptions\/thumbnail.png" }, { "name": "Paid Memberships Pro", "description": "Maximize revenue by selling membership access to all of your courses.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/pmpro\/thumbnail.png" }, { "name": "Restrict Content Pro", "description": "Unlock Course depending on Restrict Content Pro Plugin Permission.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/restrict-content-pro\/thumbnail.png" }, { "name": "Tutor Assignments", "description": "Tutor assignments is a great way to assign tasks to students.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-assignments\/thumbnail.png" }, { "name": "Tutor Certificate", "description": "Students will be able to download a certificate after course completion.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-certificate\/thumbnail.png" }, { "name": "Tutor Course Attachments", "description": "Add unlimited attachments\/ private files to any Tutor course", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-course-attachments\/thumbnail.png" }, { "name": "Tutor Course Preview", "description": "Unlock some lessons for students before enrolment.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-course-preview\/thumbnail.png" }, { "name": "Tutor E-Mail", "description": "Send email on various tutor events", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-email\/thumbnail.png" }, { "name": "Tutor Multi Instructors", "description": "Start a course with multiple instructors by Tutor Multi Instructors", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-multi-instructors\/thumbnail.png" }, { "name": "Tutor Prerequisites", "description": "Specific course you must complete before you can enroll new course by Tutor Prerequisites", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-prerequisites\/thumbnail.png" }, { "name": "Tutor Report", "description": "Check your course performance through Tutor Report stats.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-report\/thumbnail.png" }, { "name": "Quiz Export\/Import", "description": "Save time by exporting\/importing quiz data with easy options.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/quiz-import-export\/thumbnail.png" }, { "name": "Tutor Zoom Integration", "description": "Connect Tutor LMS with Zoom to host live online classes. Students can attend live classes right from the lesson page.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-zoom\/thumbnail.png" }, { "name": "Google Classroom Integration", "description": "Helps connect Google Classrooms with Tutor LMS courses, allowing you to use features like Classroom streams and files directly from the Tutor LMS course.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/google-classroom\/thumbnail.png" }, { "name": "Calendar", "description": "Allow students to see everything in a calendar view in the front dashboard.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-calendar\/thumbnail.png" }, { "name": "Notifications", "description": "Get On Site and Push Notifications on specified tutor events.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-notifications\/thumbnail.png" }, { "name": "WPML Multilingual CMS", "description": "Create multilingual courses, lessons, dashboard and more for a global audience.", "url": "https:\/\/fastwpdemo.com\/newwp\/educamcontent\/plugins\/tutor\/assets\/addons\/tutor-wpml\/thumbnail.png" }], "current_user": { "data": {}, "ID": 0, "caps": [], "cap_key": null, "roles": [], "allcaps": [], "filter": null }, "content_change_event": "tutor_content_changed_event", "is_tutor_course_edit": "", "assignment_max_file_allowed": "0", "current_page": "", "quiz_answer_display_time": "2000" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/tutor/assets/js/tutor-front.minffdc.js?ver=2.0.9') }}' id='tutor-frontend-js'></script>
     <script type='text/javascript' src='{{ asset('includes/js/jquery/ui/datepicker.min0028.js?ver=1.13.1') }}' id='jquery-ui-datepicker-js'></script>
     <script type='text/javascript' id='jquery-ui-datepicker-js-after'>
         jQuery(function (jQuery) { jQuery.datepicker.setDefaults({ "closeText": "Close", "currentText": "Today", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Previous", "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "dateFormat": "MM d, yy", "firstDay": 1, "isRTL": false }); });
     </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.minbd43.js?ver=2.7.0-wc.6.7.0') }}' id='jquery-blockui-js'></script>
-    <script type='text/javascript' id='wc-add-to-cart-js-extra'>
-        /* <![CDATA[ */
-        var wc_add_to_cart_params = { "ajax_url": "\/newwp\/educamadmin\/admin-ajax.php", "wc_ajax_url": "\/newwp\/educamb\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/fastwpdemo.com\/newwp\/educamb\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/woocommerce/assets/js/frontend/add-to-cart.minbdeb.js?ver=6.7.0') }}' id='wc-add-to-cart-js'></script>
-    <script type='text/javascript' src='{{ asset('content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min38b6.js?ver=2.1.4-wc.6.7.0') }}' id='js-cookie-js'></script>
-    <script type='text/javascript' id='woocommerce-js-extra'>
-        /* <![CDATA[ */
-        var woocommerce_params = { "ajax_url": "\/newwp\/educamadmin\/admin-ajax.php", "wc_ajax_url": "\/newwp\/educamb\/?wc-ajax=%%endpoint%%" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/woocommerce/assets/js/frontend/woocommerce.minbdeb.js?ver=6.7.0') }}' id='woocommerce-js'></script>
-    <script type='text/javascript' id='wc-cart-fragments-js-extra'>
-        /* <![CDATA[ */
-        var wc_cart_fragments_params = { "ajax_url": "\/newwp\/educamadmin\/admin-ajax.php", "wc_ajax_url": "\/newwp\/educamb\/?wc-ajax=%%endpoint%%", "cart_hash_key": "wc_cart_hash_93077245aa48997414abc487868b1d2b", "fragment_name": "wc_fragments_93077245aa48997414abc487868b1d2b", "request_timeout": "5000" };
-        /* ]]> */
-    </script>
-    <script type='text/javascript' src='{{ asset('content/plugins/woocommerce/assets/js/frontend/cart-fragments.minbdeb.js?ver=6.7.0') }}' id='wc-cart-fragments-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/aos431f.js?ver=2.1.2') }}' id='aos-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/appear431f.js?ver=2.1.2') }}' id='appear-js'></script>
-    <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/bootstrap.bundle.min431f.js?ver=2.1.2') }}' id='bootstrap-bundle-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/isotope431f.js?ver=2.1.2') }}' id='isotope-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery.bootstrap-touchspin431f.js?ver=2.1.2') }}' id='jquery-bootstrap-touchspin-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery.countTo431f.js?ver=2.1.2') }}' id='jquery-countTo-js'></script>
@@ -761,22 +474,18 @@
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/owl431f.js?ver=2.1.2') }}' id='owl-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/pagenav431f.js?ver=2.1.2') }}' id='pagenav-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/scrollbar431f.js?ver=2.1.2') }}' id='scrollbar-js'></script>
-    <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/swiper.min431f.js?ver=2.1.2') }}' id='swiper-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/tilt.jquery431f.js?ver=2.1.2') }}' id='tilt-jquery-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/TweenMax.min431f.js?ver=2.1.2') }}' id='TweenMax-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/wow431f.js?ver=2.1.2') }}' id='wow-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery-1color-switcher.min431f.js?ver=2.1.2') }}' id='jquery-1color-switcher-js'></script>
-    <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/parallax.min431f.js?ver=2.1.2') }}' id='parallax-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/skrollr.min431f.js?ver=2.1.2') }}' id='skrollr-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery-ui431f.js?ver=2.1.2') }}' id='jquery-ui-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/slick431f.js?ver=2.1.2') }}' id='slick-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery.circleType431f.js?ver=2.1.2') }}' id='jquery-circleType-js'></script>
-    <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/vegas.min431f.js?ver=2.1.2') }}' id='vegas-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery.lettering.min431f.js?ver=2.1.2') }}' id='jquery-lettering-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/jquery.countdown.min431f.js?ver=2.1.2') }}' id='jquery-countdown-js'></script>
     <script type='text/javascript' src='{{ asset('content/themes/educamb/assets/js/custom1eb7.js?ver=6.0.3') }}' id='educamb-main-custom-js'></script>
     <script type='text/javascript' src='{{ asset('includes/js/comment-reply.min1eb7.js?ver=6.0.3') }}' id='comment-reply-js'></script>
-    <script type='text/javascript' src='{{ asset('content/plugins/elementor/assets/js/webpack.runtime.mina4f3.js?ver=3.6.8') }}' id='elementor-webpack-runtime-js'></script>
     <script type='text/javascript' src='{{ asset('content/plugins/elementor/assets/js/frontend-modules.mina4f3.js?ver=3.6.8') }}' id='elementor-frontend-modules-js'></script>
     <script type='text/javascript' src='{{ asset('content/plugins/elementor/assets/lib/waypoints/waypoints.min05da.js?ver=4.0.2') }}' id='elementor-waypoints-js'></script>
     <script type='text/javascript' id='elementor-frontend-js-before'>

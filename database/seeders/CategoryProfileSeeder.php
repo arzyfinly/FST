@@ -26,7 +26,16 @@ class CategoryProfileSeeder extends Seeder
             ],
             [
                 'name' => 'Struktur Organisasi',
-            ]
+            ],
+            [
+                'name' => 'Fasilitas',
+            ],
+            [
+                'name' => 'Akreditasi',
+            ],
+            [
+                'name' => 'Rencana Strategis',
+            ],
         ];
 
         foreach ($Categories as $category) {
